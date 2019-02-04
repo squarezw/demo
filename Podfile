@@ -8,10 +8,15 @@ target 'demo' do
   # Common
   pod 'SDWebImage', '~> 4.4'
   pod 'Alamofire', '~> 4.7'
+  
+  # 3rd Platform
+  pod 'SwiftInstagram', '~> 1.1.2'
 
   # UI / UX
-  pod 'SkeletonView' # elegant way to show users that something is happening and also prepare them to which contents he is waiting
+  pod 'SkeletonView', '~> 1.4.1' # elegant way to show users that something is happening and also prepare them to which contents he is waiting
   
+  # Debug
+  pod 'ASDebugger', :configurations => ['Debug']
   
   target 'demoTests' do
     inherit! :search_paths

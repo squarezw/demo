@@ -13,4 +13,11 @@ enum Result<T, E: Error> {
     case error(E)
 }
 
+final class DataProvider {
+    private let client: APIClient
+    
+    init(client: APIClient) {
+        self.client = client
+    }
+}
 

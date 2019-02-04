@@ -7,3 +7,25 @@
 //
 
 import Foundation
+import SwiftInstagram
+
+class InstagramClient: APIClient {
+    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
+        let api = Instagram.shared
+        
+        api.recentMedia(fromUser: "self", success: { (list) in
+            completion(.success(list))
+        }) { (error) in
+
+        }
+    }
+
+    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ()) {
+        let api = Instagram.shared
+        api.user("self", success: { (userList) in
+            print(userList)
+        }) { (error) in
+            print(error)
+        }
+    }
+}

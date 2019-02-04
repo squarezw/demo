@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ASDebugger
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        ASDebugger.start(withAppKey: "a8ecc66b752e68c37c23", secret: "c6d21f33-4ba0-4bc1-9796-1c114487c09f")
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: Router.mainViewController())
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

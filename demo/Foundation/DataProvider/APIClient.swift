@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import SwiftInstagram
+
+enum APIError: Error {
+    case unknown
+    case http(Error)
+}
+
+protocol APIClient {
+    
+    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ())
+    
+    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ())
+    
+}
+
