@@ -16,16 +16,16 @@ class InstagramClient: APIClient {
         api.recentMedia(fromUser: "self", success: { (list) in
             completion(.success(list))
         }) { (error) in
-
+            completion(.error(.http(error)))
         }
     }
 
     func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ()) {
         let api = Instagram.shared
         api.user("self", success: { (userList) in
-            print(userList)
+            completion(.success(userList))
         }) { (error) in
-            print(error)
+            completion(.error(.http(error)))
         }
     }
 }

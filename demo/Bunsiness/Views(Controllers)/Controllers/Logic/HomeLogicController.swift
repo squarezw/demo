@@ -7,46 +7,44 @@
 //
 
 import UIKit
-import SwiftInstagram
 
 class HomeLogicController {
     let client: APIClient
-    var items: [InstagramMedia] = []
     
     init(client: APIClient = InstagramClient()) {
         self.client = client
     }
     
-    func loadData(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
-        client.myRecentMedia { [weak self] result in
+    func loadData(completion: @escaping (Result<[MediaViewModel], APIError>) -> ()) {
+        client.myRecentMedia { result in
             switch result {
             case .success(let results):
-                self?.items = results
+                // transfer Model -> ViewModel
+                let wrapper = results.map { MediaViewModel(media: $0) }
+                completion(.success(wrapper))
             case .error(let error):
-                print(error)
+                completion(.error(error))
             }
-            completion(result)
         }
     }
 }
 
-extension TableViewDataSource where Model == InstagramMedia {
-    static func make(for media: [InstagramMedia],
+extension TableViewDataSource where Model == MediaViewModel, Cell == MediaCell {
+    static func make(for media: [MediaViewModel],
                      reuseIdentifier: String = "cell") -> TableViewDataSource {
         return TableViewDataSource(
             models: media,
             reuseIdentifier: reuseIdentifier
-        ) { (message, cell) in
-            cell.textLabel?.text = message.id
-            cell.detailTextLabel?.text = message.filter
+        ) { (model, cell) in
+            cell.viewModel = model
         }
     }
 }
 
-extension TableViewDelegate where Model == InstagramMedia {
-    static func make(for media: [InstagramMedia]) -> TableViewDelegate {
+extension TableViewDelegate where Model == MediaViewModel {
+    static func make(for media: [MediaViewModel]) -> TableViewDelegate {
         return TableViewDelegate(models: media, heightConfigurator: { (medium) -> CGFloat in
-            return CGFloat(medium.images.lowResolution.height)
+            return CGFloat(medium.pictureHeight)
         })
     }
 }

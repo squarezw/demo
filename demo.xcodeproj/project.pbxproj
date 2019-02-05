@@ -25,9 +25,11 @@
 		95F0B0022208355900FF91DD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0012208355900FF91DD /* AuthViewController.swift */; };
 		95F0B0042208392F00FF91DD /* AuthLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0032208392F00FF91DD /* AuthLogicController.swift */; };
 		95F0B0062208421300FF91DD /* Optional+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0052208421300FF91DD /* Optional+Extenstion.swift */; };
-		95F0B0092208659A00FF91DD /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0082208659A00FF91DD /* PictureCell.swift */; };
+		95F0B0092208659A00FF91DD /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0082208659A00FF91DD /* MediaCell.swift */; };
 		95F0B00B220867AA00FF91DD /* HomeLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00A220867AA00FF91DD /* HomeLogicController.swift */; };
 		95F0B00D220895C500FF91DD /* BaseTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */; };
+		95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00F2209D79700FF91DD /* MediaViewModel.swift */; };
+		95F0B0122209DA6B00FF91DD /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0112209DA6B00FF91DD /* Media.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +69,11 @@
 		95F0B0032208392F00FF91DD /* AuthLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogicController.swift; sourceTree = "<group>"; };
 		95F0B0052208421300FF91DD /* Optional+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extenstion.swift"; sourceTree = "<group>"; };
 		95F0B0072208596D00FF91DD /* TestPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		95F0B0082208659A00FF91DD /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
+		95F0B0082208659A00FF91DD /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		95F0B00A220867AA00FF91DD /* HomeLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogicController.swift; sourceTree = "<group>"; };
 		95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewProvider.swift; sourceTree = "<group>"; };
+		95F0B00F2209D79700FF91DD /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
+		95F0B0112209DA6B00FF91DD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		A280E1054BA112CF49E62913 /* Pods-demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demoTests/Pods-demoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B861C2A4149D52DB70F1ED70 /* Pods_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,7 +186,6 @@
 				95F0AFEA2207434B00FF91DD /* Networking */,
 				95F0AFE22207405500FF91DD /* Entity */,
 				95F0AFE32207405500FF91DD /* Views(Controllers) */,
-				95F0AFFE2208323900FF91DD /* Logic */,
 				95F0AFE42207405500FF91DD /* Model */,
 			);
 			path = Bunsiness;
@@ -207,6 +210,7 @@
 		95F0AFE42207405500FF91DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95F0B0112209DA6B00FF91DD /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,7 +244,8 @@
 		95F0AFF82207475300FF91DD /* Component(Cell) */ = {
 			isa = PBXGroup;
 			children = (
-				95F0B0082208659A00FF91DD /* PictureCell.swift */,
+				95F0B00E2209D77C00FF91DD /* ViewModel */,
+				95F0B0082208659A00FF91DD /* MediaCell.swift */,
 			);
 			path = "Component(Cell)";
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 		95F0AFF92207478900FF91DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				95F0AFFE2208323900FF91DD /* Logic */,
 				95F0AFBF2207320100FF91DD /* HomeViewController.swift */,
 				95F0B0012208355900FF91DD /* AuthViewController.swift */,
 			);
@@ -261,6 +267,14 @@
 				95F0B00A220867AA00FF91DD /* HomeLogicController.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		95F0B00E2209D77C00FF91DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				95F0B00F2209D79700FF91DD /* MediaViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BFD3F78595CD43731388320F /* Frameworks */ = {
@@ -388,24 +402,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-demo/Pods-demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ASDebugger/ASDebugger.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/PinterestSDK/PinterestSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SSKeychain/SSKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftInstagram/SwiftInstagram.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASDebugger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinterestSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftInstagram.framework",
@@ -458,16 +466,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F0B0122209DA6B00FF91DD /* Media.swift in Sources */,
 				95F0AFE82207409A00FF91DD /* Error.swift in Sources */,
 				95F0AFEC2207437F00FF91DD /* InstagramAPI.swift in Sources */,
 				95F0B00D220895C500FF91DD /* BaseTableViewProvider.swift in Sources */,
-				95F0B0092208659A00FF91DD /* PictureCell.swift in Sources */,
+				95F0B0092208659A00FF91DD /* MediaCell.swift in Sources */,
 				95F0B000220832D100FF91DD /* BaseViewProvider.swift in Sources */,
 				95F0B0042208392F00FF91DD /* AuthLogicController.swift in Sources */,
 				95F0AFF42207462500FF91DD /* DataProvider.swift in Sources */,
 				95F0B0022208355900FF91DD /* AuthViewController.swift in Sources */,
 				95F0B0062208421300FF91DD /* Optional+Extenstion.swift in Sources */,
 				95F0AFC02207320100FF91DD /* HomeViewController.swift in Sources */,
+				95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */,
 				95F0AFE62207406800FF91DD /* Router.swift in Sources */,
 				95F0AFBE2207320100FF91DD /* AppDelegate.swift in Sources */,
 				95F0AFF0220743EB00FF91DD /* InstagramCredentials.swift in Sources */,

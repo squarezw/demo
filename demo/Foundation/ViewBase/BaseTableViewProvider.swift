@@ -8,14 +8,10 @@
 
 import UIKit
 
-protocol TableViewModel: ViewModel {
-    func height() -> CGFloat
-}
-
 // MARK: UITableViewDataSource
 
-class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
-    typealias CellConfigurator = (Model, UITableViewCell) -> Void
+class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDataSource {
+    typealias CellConfigurator = (Model, Cell) -> Void
     
     var models: [Model]
     
@@ -43,7 +39,9 @@ class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
             for: indexPath
         )
         
-        cellConfigurator(model, cell)
+        if let `cell` = cell as? Cell {
+            cellConfigurator(model, cell)
+        }
         
         return cell
     }

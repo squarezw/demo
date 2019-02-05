@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import SDWebImage
 
-class PictureCell: UITableViewCell {
-    // Lazy variables for the various elements required to make up our view heirarchy.
+class MediaCell: UITableViewCell {
+    
+    var viewModel: MediaViewModel? = nil {
+        didSet {
+            guard oldValue?.media != viewModel?.media else { return }
+            
+            updateUI()
+        }
+    }
+    
     private lazy var rootStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,14 +47,13 @@ class PictureCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.purple
         return label
     }()
     
     private lazy var moreButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
+        button.setTitleColor(UIColor.gray, for: .normal)
         return button
     }()
     
@@ -90,5 +98,13 @@ class PictureCell: UITableViewCell {
             rootStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             rootStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             ])
+    }
+    
+    private func updateUI() {
+        guard let viewModel = viewModel else { return }
+        
+        nameLabel.text = viewModel.username
+        avatarImageView.sd_setImage(with: viewModel.avatar)
+        picView.sd_setImage(with: viewModel.picture)
     }
 }

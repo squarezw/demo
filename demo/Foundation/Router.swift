@@ -12,7 +12,7 @@ import SwiftInstagram
 class Router {
     static func mainViewController() -> UIViewController {
         let api = Instagram.shared
-        api.logout()
+//        api.logout()
         
         if api.isAuthenticated {
             return HomeViewController()

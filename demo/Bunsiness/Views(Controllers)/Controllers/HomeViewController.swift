@@ -18,7 +18,7 @@ class HomeViewController: UITableViewController {
 
         title = "My Instagram"
         
-        tableView.register(PictureCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MediaCell.self, forCellReuseIdentifier: "cell")
         
         logicController.loadData { [weak self] result in
             switch result {
@@ -32,12 +32,5 @@ class HomeViewController: UITableViewController {
                 print(error)
             }
         }
-    }
-}
-
-// UITableViewDelegate
-extension HomeViewController {
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
 }
