@@ -13,6 +13,7 @@ final class BlockCell: UIView {
     
     private lazy var userInfoStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
@@ -67,7 +68,8 @@ final class BlockCell: UIView {
         userInfoStackView.addArrangedSubview(avatarImageView)
         userInfoStackView.addArrangedSubview(nameLabel)
         userInfoStackView.addArrangedSubview(moreButton)
-
+        
+        
         rootStackView.addArrangedSubview(userInfoStackView)
         rootStackView.addArrangedSubview(imageView)
         
@@ -79,6 +81,7 @@ final class BlockCell: UIView {
         NSLayoutConstraint.activate([
             avatarImageView.widthAnchor.constraint(equalToConstant: 45),
             moreButton.widthAnchor.constraint(equalToConstant: 45),
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 3),
             userInfoStackView.heightAnchor.constraint(equalToConstant: 50),
             imageView.widthAnchor.constraint(equalTo: widthAnchor),
             imageView.leadingAnchor.constraint(equalTo: userInfoStackView.leadingAnchor),
@@ -90,5 +93,5 @@ final class BlockCell: UIView {
     }
 }
 
-let userCell = BlockCell(frame: CGRect(x: 0, y: 0, width: 350, height: 160))
+let userCell = BlockCell(frame: CGRect(x: 0, y: 0, width: 450, height: 160))
 PlaygroundPage.current.liveView = userCell

@@ -28,6 +28,7 @@ class MediaCell: UITableViewCell {
     
     private lazy var userInfoStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
@@ -66,8 +67,7 @@ class MediaCell: UITableViewCell {
         // Define our autolayout constraints.
         layoutComponents()
         
-        // Apply some sample values
-        nameLabel.text = "Username"
+        nameLabel.text = ""
         moreButton.setTitle("...", for: .normal)
     }
     
@@ -90,6 +90,7 @@ class MediaCell: UITableViewCell {
         NSLayoutConstraint.activate([
             avatarImageView.widthAnchor.constraint(equalToConstant: 45),
             moreButton.widthAnchor.constraint(equalToConstant: 45),
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 5),
             userInfoStackView.heightAnchor.constraint(equalToConstant: 50),
             picView.widthAnchor.constraint(equalTo: widthAnchor),
             picView.leadingAnchor.constraint(equalTo: userInfoStackView.leadingAnchor),

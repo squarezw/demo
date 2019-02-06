@@ -9,9 +9,9 @@
 import UIKit
 
 class HomeLogicController {
-    let client: APIClient
+    private let client: InstagramClient
     
-    init(client: APIClient = InstagramClient()) {
+    init(client: InstagramClient = InstagramClient()) {
         self.client = client
     }
     
@@ -26,6 +26,10 @@ class HomeLogicController {
                 completion(.error(error))
             }
         }
+    }
+    
+    func logout() {
+        client.logout()
     }
 }
 

@@ -33,4 +33,16 @@ class HomeViewController: UITableViewController {
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let doneItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutClick))
+        navigationItem.rightBarButtonItem = doneItem
+    }
+    
+    @objc
+    private func logoutClick() {
+        logicController.logout()
+    }
 }

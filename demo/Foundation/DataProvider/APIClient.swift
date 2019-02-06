@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftInstagram
 
 enum APIError: Error {
     case unknown
@@ -16,9 +15,10 @@ enum APIError: Error {
 
 protocol APIClient {
     
-    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ())
+    var isAuthenticated: Bool { get }
     
-    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ())
+    func login(completion: @escaping () -> ()) throws
     
+    @discardableResult
+    func logout() -> Bool
 }
-

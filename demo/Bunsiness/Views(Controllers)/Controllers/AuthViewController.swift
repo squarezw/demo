@@ -71,17 +71,16 @@ class AuthViewController: UIViewController, Componentable {
     @objc
     private func auth() {
         
-        guard let navc = navigationController else {
-            print("!!!WARNING No Navigation Controller")
-            return
+        do {
+            try logicController.auth(completion: { [weak self] in
+                // todo
+                self?.navigationController?.pushViewController(HomeViewController(), animated: true)
+            })
+        } catch let error {
+            print(error)
         }
         
-        logicController.auth(navigation: navc, success: { [weak self] in
-            // todo
-            self?.navigationController?.pushViewController(HomeViewController(), animated: true)
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+        
     }
     
     @objc

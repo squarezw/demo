@@ -10,22 +10,24 @@ import Foundation
 import SwiftInstagram
 
 class InstagramClient: APIClient {
-    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
-        let api = Instagram.shared
-        
-        api.recentMedia(fromUser: "self", success: { (list) in
-            completion(.success(list))
-        }) { (error) in
-            completion(.error(.http(error)))
-        }
+    let api = Instagram.shared
+    
+    var isAuthenticated: Bool {
+        return api.isAuthenticated
     }
 
-    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ()) {
-        let api = Instagram.shared
-        api.user("self", success: { (userList) in
-            completion(.success(userList))
-        }) { (error) in
-            completion(.error(.http(error)))
+    @discardableResult
+    func logout() -> Bool {
+        return api.logout()
+    }
+    
+    func login(completion: @escaping () -> ()) throws {
+        guard let navc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else {
+            throw APIError.unknown
+        }
+        
+        api.login(from: navc, withScopes: [.basic, .publicContent], success: completion) { (error) in
+            print("error: \(error)")
         }
     }
 }

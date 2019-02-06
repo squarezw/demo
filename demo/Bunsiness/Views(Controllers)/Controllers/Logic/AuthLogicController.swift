@@ -6,23 +6,25 @@
 //  Copyright © 2019 Jesse. All rights reserved.
 //
 
-import UIKit
-import SwiftInstagram
+import Foundation
 
 class AuthLogicController {
-    private let adaptee = Instagram.shared
+    let client: APIClient
     
-    func isAuthenticated() -> Bool {
-        return adaptee.isAuthenticated
+    init(client: APIClient = InstagramClient()) {
+        self.client = client
     }
     
     @discardableResult
     func logout() -> Bool {
-        return adaptee.logout()
+        return client.logout()
     }
     
-    // TODO: decouple UIKit
-    func auth(navigation navc: UINavigationController, success: @escaping () -> (), failure: @escaping (_ error: Error) -> Void) {
-        adaptee.login(from: navc, withScopes: [.basic, .publicContent], success: success, failure: failure)
+    func isAuthenticated() -> Bool {
+        return client.isAuthenticated
+    }
+    
+    func auth(completion: @escaping () -> ()) throws {
+        try client.login(completion: completion)
     }
 }
