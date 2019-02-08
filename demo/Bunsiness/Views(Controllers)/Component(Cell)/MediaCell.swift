@@ -41,6 +41,7 @@ class MediaCell: UITableViewCell {
     
     private lazy var picView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
