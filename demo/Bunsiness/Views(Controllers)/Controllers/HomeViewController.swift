@@ -47,7 +47,11 @@ class HomeViewController: UITableViewController {
     
     @objc
     private func logoutClick() {
-        logicController.logout()
+        if logicController.logout() {
+            UIApplication.shared.keyWindow?.rootViewController = Router.mainViewController()
+        } else {
+            /// TODO: handle edge case
+        }
     }
 }
 

@@ -28,8 +28,8 @@ class HomeLogicController {
         }
     }
     
-    func logout() {
-        client.logout()
+    func logout() -> Bool {
+        return client.logout()
     }
 }
 

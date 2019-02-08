@@ -12,9 +12,9 @@ import SwiftInstagram
 class Router {
     static func mainViewController(client: APIClient = InstagramClient()) -> UIViewController {
         if client.isAuthenticated {
-            return HomeViewController()
+            return UINavigationController(rootViewController: HomeViewController())
         } else {
-            return AuthViewController()
+            return UINavigationController(rootViewController: AuthViewController())
         }
     }
 }
