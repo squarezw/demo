@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SkeletonView
 
 class MediaCell: UITableViewCell {
     
@@ -35,14 +36,12 @@ class MediaCell: UITableViewCell {
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .blue
         return imageView
     }()
     
     private lazy var picView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .gray
         return imageView
     }()
     
@@ -55,6 +54,7 @@ class MediaCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.gray, for: .normal)
+        button.setTitle("...", for: .normal)
         return button
     }()
     
@@ -67,8 +67,7 @@ class MediaCell: UITableViewCell {
         // Define our autolayout constraints.
         layoutComponents()
         
-        nameLabel.text = ""
-        moreButton.setTitle("...", for: .normal)
+        showLoadingAnimation()
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -83,6 +82,15 @@ class MediaCell: UITableViewCell {
         rootStackView.addArrangedSubview(picView)
         
         addSubview(rootStackView)
+    }
+    
+    private func showLoadingAnimation() {
+        isSkeletonable = true
+        showAnimatedSkeleton()
+    }
+    
+    private func hideLoadingAnimation() {
+        hideSkeleton()
     }
     
     private func layoutComponents() {
@@ -103,6 +111,8 @@ class MediaCell: UITableViewCell {
     
     private func updateUI() {
         guard let viewModel = viewModel else { return }
+        
+        hideLoadingAnimation()
         
         nameLabel.text = viewModel.username
         avatarImageView.sd_setImage(with: viewModel.avatar)

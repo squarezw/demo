@@ -9,6 +9,10 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
+    private struct Constants {
+        static let cellIdentifier = "cell"
+    }
+    
     let logicController: HomeLogicController = HomeLogicController()
     var dataSource: UITableViewDataSource?
     var delegate: UITableViewDelegate?
@@ -18,7 +22,7 @@ class HomeViewController: UITableViewController {
 
         title = "My Instagram"
         
-        tableView.register(MediaCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MediaCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         
         logicController.loadData { [weak self] result in
             switch result {
@@ -44,5 +48,20 @@ class HomeViewController: UITableViewController {
     @objc
     private func logoutClick() {
         logicController.logout()
+    }
+}
+
+// Placeholder cell
+extension HomeViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }
