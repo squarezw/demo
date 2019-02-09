@@ -11,17 +11,23 @@ import UIKit
 class HomeLogicController {
     private let client: InstagramClient
     
+    private var dataSource: UITableViewDataSource?
+    private var delegate: UITableViewDelegate?
+    
     init(client: InstagramClient = InstagramClient()) {
         self.client = client
     }
     
-    func loadData(completion: @escaping (Result<[MediaViewModel], APIError>) -> ()) {
-        client.myRecentMedia { result in
+    func loadData(completion: @escaping (Result<(UITableViewDataSource?, UITableViewDelegate?), APIError>) -> ()) {
+        client.myRecentMedia { [weak self] result in
             switch result {
             case .success(let results):
                 // transfer Model -> ViewModel
                 let wrapper = results.map { MediaViewModel(media: $0) }
-                completion(.success(wrapper))
+                
+                self?.dataSource = TableViewDataSource.make(for: wrapper)
+                self?.delegate = TableViewDelegate.make(for: wrapper)
+                completion(.success((self?.dataSource, self?.delegate)))
             case .error(let error):
                 completion(.error(error))
             }
