@@ -9,7 +9,7 @@
 import Foundation
 import SwiftInstagram
 
-class InstagramClient: APIClient {
+final class InstagramClient: APIClient {
     let api = Instagram.shared
     
     var isAuthenticated: Bool {

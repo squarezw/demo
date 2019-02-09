@@ -9,7 +9,16 @@
 import Foundation
 import SwiftInstagram
 
-extension APIClient where Self == InstagramClient {
+class InstagramAPI {
+    // todo: move all concrete APIs impl to here from 3rd party
+}
+
+extension DataProvider where T == InstagramClient {
+    var api: Instagram {
+        get {
+            return Instagram.shared
+        }
+    }
     
     func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
         api.recentMedia(fromUser: "self", success: { (list) in

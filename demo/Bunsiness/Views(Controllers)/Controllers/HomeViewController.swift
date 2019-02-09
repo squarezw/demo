@@ -14,7 +14,10 @@ class HomeViewController: UITableViewController {
     }
     
     let logicController: HomeLogicController = HomeLogicController()
-    
+
+    private var dataSource: UITableViewDataSource?
+    private var delegate: UITableViewDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,9 +27,11 @@ class HomeViewController: UITableViewController {
         
         logicController.loadData { [weak self] result in
             switch result {
-            case .success(let (datasource, delegate)):
-                self?.tableView.dataSource = datasource
-                self?.tableView.delegate = delegate
+            case .success(let (ds, dg)):
+                self?.dataSource = ds
+                self?.delegate = dg
+                self?.tableView.dataSource = self?.dataSource
+                self?.tableView.delegate = self?.delegate
                 self?.tableView.reloadData()
             case .error(let error):
                 print(error)
@@ -44,7 +49,7 @@ class HomeViewController: UITableViewController {
     @objc
     private func logoutClick() {
         if logicController.logout() {
-            UIApplication.shared.keyWindow?.rootViewController = Router.mainViewController()
+            UIApplication.shared.keyWindow?.rootViewController = Router.shared.mainViewController()
         } else {
             /// TODO: handle edge case
         }

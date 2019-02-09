@@ -8,23 +8,17 @@
 
 import Foundation
 
-class AuthLogicController {
-    let client: APIClient
-    
-    init(client: APIClient = InstagramClient()) {
-        self.client = client
-    }
-    
+class AuthLogicController: BaseLogicController {
     @discardableResult
     func logout() -> Bool {
-        return client.logout()
+        return provider.logout()
     }
     
     func isAuthenticated() -> Bool {
-        return client.isAuthenticated
+        return provider.isAuthenticated
     }
     
     func auth(completion: @escaping () -> ()) throws {
-        try client.login(completion: completion)
+        try provider.login(completion: completion)
     }
 }

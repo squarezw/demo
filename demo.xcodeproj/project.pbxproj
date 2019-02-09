@@ -30,6 +30,7 @@
 		95F0B00D220895C500FF91DD /* BaseTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */; };
 		95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00F2209D79700FF91DD /* MediaViewModel.swift */; };
 		95F0B0122209DA6B00FF91DD /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0112209DA6B00FF91DD /* Media.swift */; };
+		95F0B016220E817200FF91DD /* BaseLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B015220E817200FF91DD /* BaseLogicController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewProvider.swift; sourceTree = "<group>"; };
 		95F0B00F2209D79700FF91DD /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		95F0B0112209DA6B00FF91DD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		95F0B015220E817200FF91DD /* BaseLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLogicController.swift; sourceTree = "<group>"; };
 		A280E1054BA112CF49E62913 /* Pods-demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demoTests/Pods-demoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B861C2A4149D52DB70F1ED70 /* Pods_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -263,6 +265,7 @@
 		95F0AFFE2208323900FF91DD /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				95F0B015220E817200FF91DD /* BaseLogicController.swift */,
 				95F0B0032208392F00FF91DD /* AuthLogicController.swift */,
 				95F0B00A220867AA00FF91DD /* HomeLogicController.swift */,
 			);
@@ -479,6 +482,7 @@
 				95F0AFC02207320100FF91DD /* HomeViewController.swift in Sources */,
 				95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */,
 				95F0AFE62207406800FF91DD /* Router.swift in Sources */,
+				95F0B016220E817200FF91DD /* BaseLogicController.swift in Sources */,
 				95F0AFBE2207320100FF91DD /* AppDelegate.swift in Sources */,
 				95F0AFF0220743EB00FF91DD /* InstagramCredentials.swift in Sources */,
 				95F0AFFB2207E35E00FF91DD /* String+Extenstion.swift in Sources */,

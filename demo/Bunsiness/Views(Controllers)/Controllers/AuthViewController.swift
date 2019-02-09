@@ -72,15 +72,12 @@ class AuthViewController: UIViewController, Componentable {
     private func auth() {
         
         do {
-            try logicController.auth(completion: { [weak self] in
-                // todo
-                self?.navigationController?.pushViewController(HomeViewController(), animated: true)
+            try logicController.auth(completion: {
+                Router.shared.gotoHomePage()
             })
         } catch let error {
             print(error)
         }
-        
-        
     }
     
     @objc

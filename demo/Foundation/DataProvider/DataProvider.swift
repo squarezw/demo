@@ -13,11 +13,24 @@ enum Result<T, E: Error> {
     case error(E)
 }
 
-final class DataProvider {
-    private let client: APIClient
+final class DataProvider<T: APIClient> {
+    private let client: T
     
-    init(client: APIClient) {
+    init(client: T) {
         self.client = client
+    }
+    
+    var isAuthenticated: Bool {
+        return client.isAuthenticated
+    }
+    
+    @discardableResult
+    func logout() -> Bool {
+        return client.logout()
+    }
+    
+    func login(completion: @escaping () -> ()) throws {
+        try client.login(completion: completion)
     }
 }
 
