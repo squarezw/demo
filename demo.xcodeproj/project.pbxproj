@@ -12,7 +12,7 @@
 		95F0AFBE2207320100FF91DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFBD2207320100FF91DD /* AppDelegate.swift */; };
 		95F0AFC02207320100FF91DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFBF2207320100FF91DD /* HomeViewController.swift */; };
 		95F0AFC52207320300FF91DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F0AFC42207320300FF91DD /* Assets.xcassets */; };
-		95F0AFD32207320300FF91DD /* demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFD22207320300FF91DD /* demoTests.swift */; };
+		95F0AFD32207320300FF91DD /* MyRecentMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFD22207320300FF91DD /* MyRecentMediaTests.swift */; };
 		95F0AFE62207406800FF91DD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFE52207406800FF91DD /* Router.swift */; };
 		95F0AFE82207409A00FF91DD /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFE72207409A00FF91DD /* Error.swift */; };
 		95F0AFEC2207437F00FF91DD /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFEB2207437E00FF91DD /* InstagramAPI.swift */; };
@@ -31,6 +31,7 @@
 		95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00F2209D79700FF91DD /* MediaViewModel.swift */; };
 		95F0B0122209DA6B00FF91DD /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0112209DA6B00FF91DD /* Media.swift */; };
 		95F0B016220E817200FF91DD /* BaseLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B015220E817200FF91DD /* BaseLogicController.swift */; };
+		95F0B01A220EFAAD00FF91DD /* MyRecentMedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F0B019220EFAAD00FF91DD /* MyRecentMedia.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,7 @@
 		95F0AFC42207320300FF91DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95F0AFC92207320300FF91DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F0AFCE2207320300FF91DD /* demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95F0AFD22207320300FF91DD /* demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demoTests.swift; sourceTree = "<group>"; };
+		95F0AFD22207320300FF91DD /* MyRecentMediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecentMediaTests.swift; sourceTree = "<group>"; };
 		95F0AFD42207320300FF91DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F0AFE52207406800FF91DD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		95F0AFE72207409A00FF91DD /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		95F0B00F2209D79700FF91DD /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		95F0B0112209DA6B00FF91DD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		95F0B015220E817200FF91DD /* BaseLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLogicController.swift; sourceTree = "<group>"; };
+		95F0B019220EFAAD00FF91DD /* MyRecentMedia.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyRecentMedia.json; sourceTree = "<group>"; };
 		A280E1054BA112CF49E62913 /* Pods-demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demoTests/Pods-demoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B861C2A4149D52DB70F1ED70 /* Pods_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,7 +139,8 @@
 		95F0AFD12207320300FF91DD /* demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				95F0AFD22207320300FF91DD /* demoTests.swift */,
+				95F0B018220EFA5C00FF91DD /* Mocks */,
+				95F0B017220EF8DC00FF91DD /* Bunsiness */,
 				95F0AFD42207320300FF91DD /* Info.plist */,
 			);
 			path = demoTests;
@@ -280,6 +283,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		95F0B017220EF8DC00FF91DD /* Bunsiness */ = {
+			isa = PBXGroup;
+			children = (
+				95F0AFD22207320300FF91DD /* MyRecentMediaTests.swift */,
+			);
+			path = Bunsiness;
+			sourceTree = "<group>";
+		};
+		95F0B018220EFA5C00FF91DD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				95F0B019220EFAAD00FF91DD /* MyRecentMedia.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		BFD3F78595CD43731388320F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F0B01A220EFAAD00FF91DD /* MyRecentMedia.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95F0AFD32207320300FF91DD /* demoTests.swift in Sources */,
+				95F0AFD32207320300FF91DD /* MyRecentMediaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

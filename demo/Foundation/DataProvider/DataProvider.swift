@@ -14,7 +14,7 @@ enum Result<T, E: Error> {
 }
 
 final class DataProvider<T: APIClient> {
-    private let client: T
+    let client: T
     
     init(client: T) {
         self.client = client

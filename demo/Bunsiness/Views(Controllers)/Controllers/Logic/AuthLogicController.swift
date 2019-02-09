@@ -8,7 +8,8 @@
 
 import Foundation
 
-class AuthLogicController: BaseLogicController {
+class AuthLogicController: LogicControllerWithDataProvider {
+    
     @discardableResult
     func logout() -> Bool {
         return provider.logout()

@@ -8,8 +8,7 @@
 
 import UIKit
 
-class HomeLogicController: BaseLogicController {
-    
+class HomeLogicController: LogicControllerWithDataProvider {
     func loadData(completion: @escaping (Result<(UITableViewDataSource?, UITableViewDelegate?), APIError>) -> ()) {
         provider.myRecentMedia { result in
             switch result {

@@ -9,30 +9,19 @@
 import Foundation
 import SwiftInstagram
 
-class InstagramAPI {
-    // todo: move all concrete APIs impl to here from 3rd party
+// todo: move all concrete APIs impl to here from 3rd party
+
+protocol InstagramAPI {
+    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ())
+    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ())
 }
 
-extension DataProvider where T == InstagramClient {
-    var api: Instagram {
-        get {
-            return Instagram.shared
-        }
-    }
-    
+extension DataProvider: InstagramAPI where T: InstagramClient {
     func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
-        api.recentMedia(fromUser: "self", success: { (list) in
-            completion(.success(list))
-        }) { (error) in
-            completion(.error(.http(error)))
-        }
+        client.myRecentMedia(completion: completion)
     }
     
     func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ()) {
-        api.user("self", success: { (userList) in
-            completion(.success(userList))
-        }) { (error) in
-            completion(.error(.http(error)))
-        }
+        client.myProfile(completion: completion)
     }
 }

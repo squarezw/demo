@@ -8,14 +8,10 @@
 
 import Foundation
 
-protocol BaseLogicController {
-    var provider: DataProvider<InstagramClient> {get}
-}
-
-extension BaseLogicController {
-    var provider: DataProvider<InstagramClient> {
-        get {
-            return Router.shared.provider
-        }
+class LogicControllerWithDataProvider {
+    private(set) var provider: DataProvider<InstagramClient>
+    
+    init(provider: DataProvider<InstagramClient> = Router.shared.provider) {
+        self.provider = provider
     }
 }
