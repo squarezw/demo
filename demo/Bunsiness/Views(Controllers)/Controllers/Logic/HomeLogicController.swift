@@ -11,7 +11,7 @@ import UIKit
 class HomeLogicController: BaseLogicController {
     
     func loadData(completion: @escaping (Result<(UITableViewDataSource?, UITableViewDelegate?), APIError>) -> ()) {
-        provider.myRecentMedia { [weak self] result in
+        provider.myRecentMedia { result in
             switch result {
             case .success(let results):
                 // transfer Model -> ViewModel
