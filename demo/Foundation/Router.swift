@@ -13,20 +13,18 @@ class Router {
     
     private lazy var client: InstagramClient = InstagramClient()
     
-    private lazy var rootVC: UINavigationController = {
-        if provider.isAuthenticated {
-            return UINavigationController(rootViewController: HomeViewController())
-        } else {
-            return UINavigationController(rootViewController: AuthViewController())
-        }
+    lazy var rootVC: UINavigationController = {
+        UINavigationController(rootViewController: provider.isAuthenticated ? HomeViewController() : AuthViewController())
     }()
     
     lazy var provider: DataProvider = {
         return DataProvider(client: self.client)
     }()
     
-    func mainViewController() -> UIViewController {
-        return rootVC
+    /// once user login or logout, the root should be rebuild.
+    func refresh() {
+        rootVC = UINavigationController(rootViewController: provider.isAuthenticated ? HomeViewController() : AuthViewController())        
+        UIApplication.shared.keyWindow?.rootViewController = rootVC
     }
     
     func gotoAuthPage() {

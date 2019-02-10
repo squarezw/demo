@@ -64,7 +64,7 @@ class AuthViewController: UIViewController, Componentable {
         
         do {
             try logicController.auth(completion: {
-                Router.shared.gotoHomePage()
+                Router.shared.refresh()
             })
         } catch let error {
             print(error)
