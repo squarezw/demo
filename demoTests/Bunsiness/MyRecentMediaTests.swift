@@ -22,17 +22,9 @@ class MyRecentMediaTests: XCTestCase {
     }
 
     func testJSONMapping() throws {
-        let bundle = Bundle(for: type(of: self))
-        
-        guard let url = bundle.url(forResource: "MyRecentMedia", withExtension: "json") else {
-            XCTFail("Missing file: MyRecentMedia.json")
-            return
-        }
-        let jsonData = try Data(contentsOf: url)
-        
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let media = try decoder.decode(InstagramMedia.self, from: jsonData)
+        let media = try decoder.decode(InstagramMedia.self, from: MyRecentMediaTests.jsonData())
         
         XCTAssertEqual(media.user.fullName, "Square")
         XCTAssertEqual(media.id, "1451112338257994872_649864412")
@@ -40,17 +32,44 @@ class MyRecentMediaTests: XCTestCase {
     
     func testHomeLogicController() {
         let provider = DataProvider(client: ClientMock())
-//        let authLC = AuthLogicController(provider: provider)
-//        let homeLC = HomeLogicController(provider: provider)
-//        let homeVC = HomeViewController(logicController: homeLC)
+        let homeLC = HomeLogicController(provider: provider)
+        let homeVC = HomeViewController()
+        homeVC.logicController = homeLC
+        homeVC.loadData()
         
-//        homeVC.viewDidLoad()
-//        XCTAssertTrue(homeVC.tableView.numberOfRows(inSection: 0) == 3)
+        XCTAssertNotNil(homeVC.tableView.dataSource)
+        let dataSource = homeVC.tableView.dataSource!
+        XCTAssertTrue(dataSource is TableViewDataSource<MediaViewModel, MediaCell>)
+        XCTAssertTrue(homeVC.tableView.numberOfRows(inSection: 0) == 1, "number of rows is not match")
+    }
+    
+    fileprivate static func jsonData() throws -> Data {
+        let bundle = Bundle(for: self)
+        
+        guard let url = bundle.url(forResource: "MyRecentMedia", withExtension: "json") else {
+            throw(ZError.invalidURL(url: "MyRecentMedia.json"))
+        }
+        return try Data(contentsOf: url)
     }
 
 }
 
-class ClientMock: APIClient {
+class ClientMock: APIClient, InstagramAPI {
+    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        do {
+            let media = try decoder.decode(InstagramMedia.self, from: MyRecentMediaTests.jsonData())
+            completion(.success([media]))
+        } catch {
+            XCTAssertTrue(false, "file decode failure!")
+        }
+    }
+    
+    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ()) {
+        
+    }
+    
     var isAuthenticated: Bool
     
     func login(completion: @escaping () -> ()) throws {
