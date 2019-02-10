@@ -10,7 +10,10 @@ import UIKit
 import SDWebImage
 import SkeletonView
 
-class MediaCell: UITableViewCell {
+class MediaCell: UITableViewCell, Componentable {
+    var components: [UIView] {
+        return [rootStackView]
+    }
     
     var viewModel: MediaViewModel? = nil {
         didSet {
@@ -62,18 +65,14 @@ class MediaCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // Add our components to the view heirarchy.
-        addComponents()
-        
-        // Define our autolayout constraints.
-        layoutComponents()
+        setupComponents()
         
         showLoadingAnimation()
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    private func addComponents() {
+    func addComponents() {
         
         userInfoStackView.addArrangedSubview(avatarImageView)
         userInfoStackView.addArrangedSubview(nameLabel)
@@ -94,7 +93,7 @@ class MediaCell: UITableViewCell {
         hideSkeleton()
     }
     
-    private func layoutComponents() {
+    func layoutComponents() {
         
         NSLayoutConstraint.activate([
             avatarImageView.widthAnchor.constraint(equalToConstant: 45),

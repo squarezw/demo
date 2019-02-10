@@ -9,6 +9,14 @@
 import UIKit
 
 class AuthViewController: UIViewController, Componentable {
+    var components: [UIView] {
+        if logicController.isAuthenticated() {
+            return [logoutBtn]
+        } else {
+            return [authBtn]
+        }
+    }
+    
     let logicController = AuthLogicController()
     
     let authBtn: UIButton = {
@@ -36,26 +44,9 @@ class AuthViewController: UIViewController, Componentable {
         setupComponents()
     }
     
-    func addComponents() {
-        
-        if logicController.isAuthenticated() {
-            [logoutBtn].forEach(view.addSubview)
-        } else {
-            [authBtn].forEach(view.addSubview)
-        }
-    }
-    
     func layoutComponents() {
         
-        var button: UIButton?
-        
-        if logicController.isAuthenticated() {
-            button = logoutBtn
-        } else {
-            button = authBtn
-        }
-        
-        guard let centerButton = button else {
+        guard let centerButton = components.first else {
             return
         }
         

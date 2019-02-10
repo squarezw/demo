@@ -13,10 +13,10 @@ enum Result<T, E: Error> {
     case error(E)
 }
 
-final class DataProvider<T: APIClient> {
-    let client: T
+final class DataProvider {
+    let client: APIClient & InstagramAPI
     
-    init(client: T) {
+    init(client: APIClient & InstagramAPI) {
         self.client = client
     }
     

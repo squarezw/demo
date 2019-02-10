@@ -13,27 +13,20 @@ class HomeViewController: UITableViewController {
         static let cellIdentifier = "cell"
     }
     
-    let logicController: HomeLogicController
+    var logicController: HomeLogicController = HomeLogicController()
 
     private var dataSource: UITableViewDataSource?
     private var delegate: UITableViewDelegate?
-    
-    init(logicController logic: HomeLogicController = HomeLogicController()) {
-        self.logicController = logic
-        super.init(style: .grouped)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "My Instagram"
-        
         tableView.register(MediaCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
-        
+        loadData()
+    }
+    
+    func loadData() {
         logicController.loadData { [weak self] result in
             switch result {
             case .success(let (ds, dg)):

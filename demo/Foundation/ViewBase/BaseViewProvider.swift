@@ -9,8 +9,15 @@
 import UIKit
 
 protocol Componentable {
+    var components: [UIView] {get}
+    
+    // Add our components to the view heirarchy.
     func addComponents()
+    
+    // Remove all components
     func removeComponents()
+    
+    // Define our autolayout constraints.
     func layoutComponents()
 }
 
@@ -26,7 +33,13 @@ extension Componentable {
     }
     
     func removeComponents() {
-        // do nothing
+//        components.forEach {$0.removeFromSuperview()}
+    }
+}
+
+extension Componentable where Self: UIViewController {
+    func addComponents() {
+        components.forEach(view.addSubview)
     }
 }
 
