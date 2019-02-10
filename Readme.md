@@ -26,5 +26,5 @@ In this project I am going to demonstrate how structure a flexible, reusable, sc
 4. No-block things on main thread while rendering the cell, place heavy calculate to the other thread.
 
 #### CI
-1. Supports fastlane
-2. Supports travis
+- [x] Supports fastlane
+- [x] Supports travis
