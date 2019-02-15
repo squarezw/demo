@@ -36,28 +36,14 @@ class MediaCell: UITableViewCell, Componentable {
         return stackView
     }()
     
-    private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private lazy var avatarImageView: UIImageView = UIImageView(style: Stylesheet.Default.image)
     
-    private lazy var picView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private lazy var picView: UIImageView = UIImageView(style: Stylesheet.Default.image)
     
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private lazy var nameLabel: UILabel = UILabel(style: Stylesheet.Default.title)
     
     private lazy var moreButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.gray, for: .normal)
+        let button = UIButton(style: Stylesheet.Default.button)
         button.setTitle("...", for: .normal)
         return button
     }()
