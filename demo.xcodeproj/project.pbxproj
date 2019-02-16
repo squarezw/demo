@@ -158,7 +158,6 @@
 				95F0AFE9220742E700FF91DD /* DataProvider */,
 				95F0AFDE2207405500FF91DD /* ViewBase */,
 				95F0AFDF2207405500FF91DD /* Helper(Extension) */,
-				95F0AFE02207405500FF91DD /* Animation */,
 				95F0AFE52207406800FF91DD /* Router.swift */,
 				95F0AFE72207409A00FF91DD /* Error.swift */,
 				95BE71D62216E58700D6D70D /* Style.swift */,
@@ -183,13 +182,6 @@
 				95BE71D82217C1F900D6D70D /* Lock.swift */,
 			);
 			path = "Helper(Extension)";
-			sourceTree = "<group>";
-		};
-		95F0AFE02207405500FF91DD /* Animation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Animation;
 			sourceTree = "<group>";
 		};
 		95F0AFE12207405500FF91DD /* Bunsiness */ = {
