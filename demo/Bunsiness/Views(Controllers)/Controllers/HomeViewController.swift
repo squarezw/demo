@@ -35,7 +35,7 @@ class HomeViewController: UITableViewController {
                 self?.tableView.dataSource = self?.dataSource
                 self?.tableView.delegate = self?.delegate
                 self?.tableView.reloadData()
-            case .error(let error):
+            case .failure(let error):
                 print(error)
             }
         }

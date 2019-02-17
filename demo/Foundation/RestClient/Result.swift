@@ -1,36 +1,35 @@
 //
-//  DataProvider.swift
+//  Result.swift
 //  demo
 //
-//  Created by Jesse on 2019/2/3.
+//  Created by Jesse on 2019/2/17.
 //  Copyright © 2019 Jesse. All rights reserved.
 //
 
 import Foundation
 
-enum Result<T, E: Error> {
+public enum Result<T> {
     case success(T)
-    case error(E)
+    case failure(Error)
+    
+    var isSuccess: Bool {
+        switch self {
+        case .success:
+            return true
+        case .failure:
+            return false
+        }
+    }
 }
 
-final class DataProvider {
-    let client: APIClient & InstagramAPI
-    
-    init(client: APIClient & InstagramAPI) {
-        self.client = client
-    }
-    
-    var isAuthenticated: Bool {
-        return client.isAuthenticated
-    }
-    
-    @discardableResult
-    func logout() -> Bool {
-        return client.logout()
-    }
-    
-    func login(completion: @escaping () -> ()) throws {
-        try client.login(completion: completion)
+extension Result {
+    init(value: T?, or error: Error) {
+        guard let value = value else {
+            self = .failure(error)
+            return
+        }
+        
+        self = .success(value)
     }
 }
 
@@ -43,7 +42,7 @@ extension Result: CustomStringConvertible {
         switch self {
         case .success:
             return "SUCCESS"
-        case .error:
+        case .failure:
             return "FAILURE"
         }
     }
@@ -58,7 +57,7 @@ extension Result: CustomDebugStringConvertible {
         switch self {
         case .success(let value):
             return "SUCCESS: \(value)"
-        case .error(let error):
+        case .failure(let error):
             return "FAILURE: \(error)"
         }
     }

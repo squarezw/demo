@@ -9,15 +9,15 @@
 import UIKit
 
 class HomeLogicController: LogicControllerWithDataProvider {
-    func loadData(completion: @escaping (Result<(UITableViewDataSource?, UITableViewDelegate?), APIError>) -> ()) {
+    func loadData(completion: @escaping (Result<(UITableViewDataSource?, UITableViewDelegate?)>) -> ()) {
         provider.myRecentMedia { result in
             switch result {
             case .success(let results):
                 // transfer Model -> ViewModel
                 let wrapper = results.map { MediaViewModel(media: $0) }                
                 completion(.success((TableViewDataSource.make(for: wrapper), TableViewDelegate.make(for: wrapper))))
-            case .error(let error):
-                completion(.error(error))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

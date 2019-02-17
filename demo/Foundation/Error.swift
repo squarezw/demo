@@ -8,15 +8,18 @@
 
 import Foundation
 
-enum ZError: Error {
-    case invalidURL(url: String)
+public enum ZError: Error {
+    case networkingServiceError(reason: APIError)
+    case unknown
 }
 
 extension ZError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .invalidURL(let url):
-            return "URL is not valid: \(url)"
+        case .networkingServiceError(let reason):
+            return reason.localizedDescription
+        case .unknown:
+            return "unknown error!"
         }
     }
 }

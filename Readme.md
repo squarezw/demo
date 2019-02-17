@@ -7,7 +7,7 @@ In this project I am going to demonstrate how structure a flexible, reusable, sc
 
 ### TODO
 
-#### Decouple SwiftInstagram
+#### well-designed REST client networking
 1. Remove SwiftInstagram 3rd party
 2. Exact pure model definition from SwiftInstagram
 3. Exact raw model into Entity

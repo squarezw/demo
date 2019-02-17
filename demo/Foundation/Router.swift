@@ -11,7 +11,7 @@ import UIKit
 class Router {
     static let shared: Router = Router()
     
-    private lazy var client: InstagramClient = InstagramClient()
+    private lazy var client: InstagramClient = InstagramClient.shared
     
     lazy var rootVC: UINavigationController = {
         UINavigationController(rootViewController: provider.isAuthenticated ? HomeViewController() : AuthViewController())
