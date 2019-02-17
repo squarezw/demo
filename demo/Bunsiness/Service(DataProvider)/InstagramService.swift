@@ -28,7 +28,7 @@ protocol InstagramAPI {
     func myProfile(completion: @escaping (Result<InstagramUser>) -> ())
 }
 
-extension DataProvider: InstagramAPI {
+extension DataProvider: InstagramAPI where T: InstagramClient {
     func myRecentMedia(completion: @escaping (Result<[InstagramMedia]>) -> ()) {
         client.myRecentMedia(completion: completion)
     }

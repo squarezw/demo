@@ -9,9 +9,9 @@
 import Foundation
 
 class LogicControllerWithDataProvider {
-    private(set) var provider: DataProvider
+    private(set) var provider: DataProvider<InstagramClient>
     
-    init(provider: DataProvider = Router.shared.provider) {
-        self.provider = provider
+    init() {
+        self.provider = DataProvider(client: InstagramClient.shared)
     }
 }

@@ -8,38 +8,45 @@
 
 import UIKit
 
+protocol AuthDelegate {
+    func isAuthenticated() -> Bool
+}
+
 class Router {
     static let shared: Router = Router()
     
-    private lazy var client: InstagramClient = InstagramClient.shared
+    var delegate: AuthDelegate?
     
-    lazy var rootVC: UINavigationController = {
-        UINavigationController(rootViewController: provider.isAuthenticated ? HomeViewController() : AuthViewController())
-    }()
+    private func rootViewController() -> UIViewController {
+        if let delegate = delegate, delegate.isAuthenticated() {
+            return HomeViewController()
+        } else {
+            return AuthViewController()
+        }
+    }
     
-    lazy var provider: DataProvider = {
-        return DataProvider(client: self.client)
-    }()
+    func entryVC() -> UINavigationController {
+        return UINavigationController(rootViewController: rootViewController())
+    }
     
     /// once user login or logout, the root should be rebuild.
     func refresh() {
-        rootVC = UINavigationController(rootViewController: provider.isAuthenticated ? HomeViewController() : AuthViewController())        
-        UIApplication.shared.keyWindow?.rootViewController = rootVC
+        UIApplication.shared.keyWindow?.rootViewController = entryVC()
     }
     
     func gotoAuthPage() {
-        if let vc = rootVC.viewControllers.first(where: { $0 is AuthViewController } ) {
-            rootVC.popToViewController(vc, animated: true)
+        if let vc = entryVC().viewControllers.first(where: { $0 is AuthViewController } ) {
+            entryVC().popToViewController(vc, animated: true)
         } else {
-            rootVC.pushViewController(AuthViewController(), animated: true)
+            entryVC().pushViewController(AuthViewController(), animated: true)
         }
     }
     
     func gotoHomePage() {
-        if let vc = rootVC.viewControllers.first(where: { $0 is HomeViewController } ) {
-            rootVC.popToViewController(vc, animated: true)
+        if let vc = entryVC().viewControllers.first(where: { $0 is HomeViewController } ) {
+            entryVC().popToViewController(vc, animated: true)
         } else {
-            rootVC.pushViewController(HomeViewController(), animated: true)
+            entryVC().pushViewController(HomeViewController(), animated: true)
         }
     }
 }

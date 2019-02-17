@@ -9,7 +9,7 @@
 import Foundation
 import SwiftInstagram
 
-final class InstagramClient: APIClient, InstagramAPI {
+final class InstagramClient: APIClient, InstagramAPI, AuthDelegate {
     let keychain = KeychainSwift(keyPrefix: "PrivateClient_")
 
     var commonParams: JSON {

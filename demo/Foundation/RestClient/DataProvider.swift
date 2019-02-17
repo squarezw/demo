@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class DataProvider {
-    let client: APIClient & InstagramAPI
+final class DataProvider<T: APIClient> {
+    let client: T
     
-    init(client: APIClient & InstagramAPI) {
+    init(client: T) {
         self.client = client
     }
     
