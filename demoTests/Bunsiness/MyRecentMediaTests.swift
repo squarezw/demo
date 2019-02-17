@@ -47,7 +47,7 @@ class MyRecentMediaTests: XCTestCase {
         let bundle = Bundle(for: self)
         
         guard let url = bundle.url(forResource: "MyRecentMedia", withExtension: "json") else {
-            throw(ZError.invalidURL(url: "MyRecentMedia.json"))
+            throw(APIError.invalidURL(url: "MyRecentMedia.json"))
         }
         return try Data(contentsOf: url)
     }
@@ -55,7 +55,15 @@ class MyRecentMediaTests: XCTestCase {
 }
 
 class ClientMock: APIClient, InstagramAPI {
-    func myRecentMedia(completion: @escaping (Result<[InstagramMedia], APIError>) -> ()) {
+    var baseUrl: String = "http://xxx.com"
+    
+    var commonParams: JSON = [:]
+    
+    func isAuthenticated() -> Bool {
+        return false
+    }
+    
+    func myRecentMedia(completion: @escaping (Result<[InstagramMedia]>) -> ()) {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
@@ -66,11 +74,9 @@ class ClientMock: APIClient, InstagramAPI {
         }
     }
     
-    func myProfile(completion: @escaping (Result<InstagramUser, APIError>) -> ()) {
+    func myProfile(completion: @escaping (Result<InstagramUser>) -> ()) {
         
     }
-    
-    var isAuthenticated: Bool
     
     func login(completion: @escaping () -> ()) throws {
         
@@ -78,9 +84,5 @@ class ClientMock: APIClient, InstagramAPI {
     
     func logout() -> Bool {
         return true
-    }
-    
-    init() {
-        isAuthenticated = false
-    }
+    }    
 }
