@@ -31,10 +31,8 @@ class MyRecentMediaTests: XCTestCase {
     }
     
     func testHomeLogicController() {
-        let provider = DataProvider(client: ClientMock())
-        let homeLC = HomeLogicController(provider: provider)
         let homeVC = HomeViewController()
-        homeVC.logicController = homeLC
+        homeVC.logicController.provider = DataProvider(client: MockClient())
         homeVC.loadData()
         
         XCTAssertNotNil(homeVC.tableView.dataSource)
@@ -54,16 +52,8 @@ class MyRecentMediaTests: XCTestCase {
 
 }
 
-class ClientMock: APIClient, InstagramAPI {
-    var baseUrl: String = "http://xxx.com"
-    
-    var commonParams: JSON = [:]
-    
-    func isAuthenticated() -> Bool {
-        return false
-    }
-    
-    func myRecentMedia(completion: @escaping (Result<[InstagramMedia]>) -> ()) {
+class MockClient: InstagramClient {
+    override func myRecentMedia(completion: @escaping (Result<[InstagramMedia]>) -> ()) {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
@@ -73,16 +63,4 @@ class ClientMock: APIClient, InstagramAPI {
             XCTAssertTrue(false, "file decode failure!")
         }
     }
-    
-    func myProfile(completion: @escaping (Result<InstagramUser>) -> ()) {
-        
-    }
-    
-    func login(completion: @escaping () -> ()) throws {
-        
-    }
-    
-    func logout() -> Bool {
-        return true
-    }    
 }

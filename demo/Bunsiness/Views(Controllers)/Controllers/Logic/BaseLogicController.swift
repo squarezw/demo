@@ -9,7 +9,7 @@
 import Foundation
 
 class LogicControllerWithDataProvider {
-    private(set) var provider: DataProvider<InstagramClient>
+    var provider: DataProvider<InstagramClient>
     
     init() {
         self.provider = DataProvider(client: InstagramClient.shared)

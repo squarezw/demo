@@ -9,7 +9,9 @@
 import Foundation
 import SwiftInstagram
 
-final class InstagramClient: APIClient, InstagramAPI, AuthDelegate {
+typealias InsAPI = APIClient & InstagramAPI
+
+class InstagramClient: InsAPI, AuthDelegate {
     let keychain = KeychainSwift(keyPrefix: "PrivateClient_")
 
     var commonParams: JSON {
@@ -23,8 +25,6 @@ final class InstagramClient: APIClient, InstagramAPI, AuthDelegate {
     static let shared: InstagramClient = InstagramClient()
     
     var baseUrl: String = "http://localhost:3000/"
-    
-    private init() {}
     
     func isAuthenticated() -> Bool {
         return api.isAuthenticated
