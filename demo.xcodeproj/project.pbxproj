@@ -16,7 +16,6 @@
 		956716DC2219502D00A80180 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716DB2219502D00A80180 /* APIError.swift */; };
 		956716DF22195D2200A80180 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716DE22195D2200A80180 /* Cache.swift */; };
 		956716E122195D2D00A80180 /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716E022195D2D00A80180 /* CacheItem.swift */; };
-		956716E322195D3A00A80180 /* CacheAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716E222195D3A00A80180 /* CacheAPIClient.swift */; };
 		95BE71D52216E53C00D6D70D /* GlobalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D42216E53C00D6D70D /* GlobalStyle.swift */; };
 		95BE71D72216E58700D6D70D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D62216E58700D6D70D /* Style.swift */; };
 		95BE71D92217C1F900D6D70D /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D82217C1F900D6D70D /* Lock.swift */; };
@@ -67,7 +66,6 @@
 		956716DB2219502D00A80180 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		956716DE22195D2200A80180 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		956716E022195D2D00A80180 /* CacheItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
-		956716E222195D3A00A80180 /* CacheAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAPIClient.swift; sourceTree = "<group>"; };
 		95BE71D42216E53C00D6D70D /* GlobalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStyle.swift; sourceTree = "<group>"; };
 		95BE71D62216E58700D6D70D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		95BE71D82217C1F900D6D70D /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			children = (
 				956716DE22195D2200A80180 /* Cache.swift */,
 				956716E022195D2D00A80180 /* CacheItem.swift */,
-				956716E222195D3A00A80180 /* CacheAPIClient.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -216,18 +213,10 @@
 			children = (
 				95F0AFF7220746F900FF91DD /* Appearance */,
 				95F0AFEA2207434B00FF91DD /* Service(DataProvider) */,
-				95F0AFE22207405500FF91DD /* Entity */,
 				95F0AFE32207405500FF91DD /* Views(Controllers) */,
 				95F0AFE42207405500FF91DD /* Model */,
 			);
 			path = Bunsiness;
-			sourceTree = "<group>";
-		};
-		95F0AFE22207405500FF91DD /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		95F0AFE32207405500FF91DD /* Views(Controllers) */ = {
@@ -526,7 +515,6 @@
 			files = (
 				95F0B0122209DA6B00FF91DD /* Media.swift in Sources */,
 				95F0AFE82207409A00FF91DD /* Error.swift in Sources */,
-				956716E322195D3A00A80180 /* CacheAPIClient.swift in Sources */,
 				95F0AFEC2207437F00FF91DD /* InstagramService.swift in Sources */,
 				956716E122195D2D00A80180 /* CacheItem.swift in Sources */,
 				95F0B00D220895C500FF91DD /* BaseTableViewProvider.swift in Sources */,
