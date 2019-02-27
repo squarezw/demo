@@ -13,7 +13,7 @@ public enum APIError: Error {
     case invalidURL(url: String)
     case unauthorized
     case parseFailure(data: Data?)
-    case http(Error?)
+    case http(statusCode: Int,  Error?)
     case unknown
 }
 
@@ -29,8 +29,8 @@ extension APIError: LocalizedError {
         case .parseFailure(let data):
             // TODO: friendly warning
             return LocalizedString.parseFailure + String(describing: data)
-        case .http(let error):
-            return error?.localizedDescription
+        case .http(let statusCode, let error):
+            return "\(statusCode)" + (error?.localizedDescription ?? "")
         case .unknown:
             return LocalizedString.unknownError
         }

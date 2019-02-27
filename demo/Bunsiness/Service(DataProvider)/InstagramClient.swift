@@ -51,7 +51,7 @@ class InstagramClient: InsAPI, AuthDelegate {
         api.recentMedia(fromUser: "self", success: { (list) in
             completion(.success(list))
         }) { (error) in
-            completion(.failure(APIError.http(error)))
+            completion(.failure(APIError.unknown))
         }
     }
     

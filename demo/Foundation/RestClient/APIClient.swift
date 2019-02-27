@@ -63,7 +63,7 @@ extension APIClient {
             } else if response.statusCode == 401 {
                 completion(.failure(APIError.unauthorized))
             } else {
-                completion(.failure(APIError.http(error)))
+                completion(.failure(APIError.http(statusCode: response.statusCode, error)))
             }
         }
         
