@@ -21,18 +21,18 @@ extension APIError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .noInternetConnection:
-            return "no internet connection!"
+            return LocalizedString.noInternetConnection
         case .invalidURL(let url):
-            return "URL is not valid: \(url)"
+            return LocalizedString.invalidURL + url
         case .unauthorized:
-            return "unauthorized"
+            return LocalizedString.unauthorized
         case .parseFailure(let data):
             // TODO: friendly warning
-            return "parse failure: \(String(describing: data))"
+            return LocalizedString.parseFailure + String(describing: data)
         case .http(let error):
             return error?.localizedDescription
         case .unknown:
-            return "unknown!"
+            return LocalizedString.unknownError
         }
     }
 }

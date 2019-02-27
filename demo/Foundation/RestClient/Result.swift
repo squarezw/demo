@@ -41,9 +41,9 @@ extension Result: CustomStringConvertible {
     public var description: String {
         switch self {
         case .success:
-            return "SUCCESS"
+            return LocalizedString.success
         case .failure:
-            return "FAILURE"
+            return LocalizedString.failure
         }
     }
 }
@@ -56,9 +56,9 @@ extension Result: CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
         case .success(let value):
-            return "SUCCESS: \(value)"
+            return LocalizedString.success + "\(value)"
         case .failure(let error):
-            return "FAILURE: \(error)"
+            return LocalizedString.failure + "\(error)"
         }
     }
 }

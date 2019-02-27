@@ -19,7 +19,7 @@ extension ZError: LocalizedError {
         case .networkingServiceError(let reason):
             return reason.localizedDescription
         case .unknown:
-            return "unknown error!"
+            return LocalizedString.unknownError
         }
     }
 }

@@ -17,6 +17,8 @@
 		956716DC2219502D00A80180 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716DB2219502D00A80180 /* APIError.swift */; };
 		956716DF22195D2200A80180 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716DE22195D2200A80180 /* Cache.swift */; };
 		956716E122195D2D00A80180 /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716E022195D2D00A80180 /* CacheItem.swift */; };
+		9587691322264A9A00CC81B7 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587691222264A9A00CC81B7 /* LocalizedString.swift */; };
+		9587691522264AB000CC81B7 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587691422264AB000CC81B7 /* AccessibilityIdentifier.swift */; };
 		95BE71D52216E53C00D6D70D /* GlobalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D42216E53C00D6D70D /* GlobalStyle.swift */; };
 		95BE71D72216E58700D6D70D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D62216E58700D6D70D /* Style.swift */; };
 		95BE71D92217C1F900D6D70D /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D82217C1F900D6D70D /* Lock.swift */; };
@@ -68,6 +70,8 @@
 		956716DB2219502D00A80180 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		956716DE22195D2200A80180 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		956716E022195D2D00A80180 /* CacheItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
+		9587691222264A9A00CC81B7 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		9587691422264AB000CC81B7 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		95BE71D42216E53C00D6D70D /* GlobalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStyle.swift; sourceTree = "<group>"; };
 		95BE71D62216E58700D6D70D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		95BE71D82217C1F900D6D70D /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		9587691122264A7600CC81B7 /* DeStringers */ = {
+			isa = PBXGroup;
+			children = (
+				9587691222264A9A00CC81B7 /* LocalizedString.swift */,
+				9587691422264AB000CC81B7 /* AccessibilityIdentifier.swift */,
+			);
+			path = DeStringers;
+			sourceTree = "<group>";
+		};
 		95F0AFB12207320100FF91DD = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 		95F0AFDD2207405500FF91DD /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				9587691122264A7600CC81B7 /* DeStringers */,
 				95F0AFE9220742E700FF91DD /* RestClient */,
 				95F0AFDE2207405500FF91DD /* ViewBase */,
 				95F0AFDF2207405500FF91DD /* Helper(Globally) */,
@@ -526,6 +540,7 @@
 				956716D622194C8600A80180 /* Result.swift in Sources */,
 				95F0B0042208392F00FF91DD /* AuthLogicController.swift in Sources */,
 				95F0AFF42207462500FF91DD /* DataProvider.swift in Sources */,
+				9587691522264AB000CC81B7 /* AccessibilityIdentifier.swift in Sources */,
 				95F0B0022208355900FF91DD /* AuthViewController.swift in Sources */,
 				956716D822194D8D00A80180 /* Path.swift in Sources */,
 				95BE71D52216E53C00D6D70D /* GlobalStyle.swift in Sources */,
@@ -546,6 +561,7 @@
 				95F0B00B220867AA00FF91DD /* HomeLogicController.swift in Sources */,
 				95BE71D72216E58700D6D70D /* Style.swift in Sources */,
 				956716D422193EBB00A80180 /* KeychainSwiftDistrib.swift in Sources */,
+				9587691322264A9A00CC81B7 /* LocalizedString.swift in Sources */,
 				956716DF22195D2200A80180 /* Cache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
