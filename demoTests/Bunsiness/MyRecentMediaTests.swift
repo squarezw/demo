@@ -8,6 +8,7 @@
 
 import XCTest
 import SwiftInstagram
+import ASFoundation
 
 @testable import demo
 
