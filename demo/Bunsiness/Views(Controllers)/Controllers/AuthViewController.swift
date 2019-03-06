@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ASFoundation
 
 class AuthViewController: UIViewController, Componentable {
     var components: [UIView] {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Componentable {
+public protocol Componentable {
     var components: [UIView] {get}
     
     // Add our components to the view heirarchy.
@@ -21,7 +21,7 @@ protocol Componentable {
     func layoutComponents()
 }
 
-extension Componentable {
+public extension Componentable {
     func setupComponents() {
         addComponents()
         layoutComponents()
@@ -37,7 +37,7 @@ extension Componentable {
     }
 }
 
-extension Componentable where Self: UIViewController {
+public extension Componentable where Self: UIViewController {
     func addComponents() {
         components.forEach(view.addSubview)
     }

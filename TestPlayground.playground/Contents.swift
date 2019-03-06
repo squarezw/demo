@@ -95,3 +95,78 @@ final class BlockCell: UIView {
 
 let userCell = BlockCell(frame: CGRect(x: 0, y: 0, width: 450, height: 160))
 PlaygroundPage.current.liveView = userCell
+
+
+// Desgin Route...
+
+@dynamicMemberLookup
+public protocol RouterProtocol {
+    // In general set up as a root view controller
+    var entryPage: UINavigationController { get }
+    
+    // refresh entire router tree once the key path is changed.
+    func refresh()
+    
+    var routeTree: [String: UIViewController] {get}
+}
+
+public extension RouterProtocol {
+    subscript(dynamicMember member: String) -> UIViewController? {
+        return routeTree[member]
+    }
+}
+
+public protocol RouteCompatible {
+    associatedtype CompatableType
+    var route: CompatableType { get }
+}
+
+public extension RouteCompatible {
+    public var route: Auto<Self> {
+        get { return Auto(self) }
+        set { }
+    }
+}
+
+public struct Auto<Base>: RouterProtocol {
+    public var entryPage: UINavigationController
+    
+    public func refresh() {
+        
+    }
+    
+    public var routeTree: [String : UIViewController] = [:]
+    
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+        self.entryPage = UINavigationController()
+    }
+    
+    func goto(_ destination: String) {
+        
+    }
+}
+
+extension Auto where Base:UIViewController {
+    func goback() {
+        self.entryPage.popViewController(animated: true)
+    }
+}
+
+extension UIViewController: RouteCompatible{
+    
+}
+
+
+let vc = UIViewController()
+vc.route.goback()
+
+
+
+
+
+
+
+
+

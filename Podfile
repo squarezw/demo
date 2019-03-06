@@ -10,7 +10,6 @@ target 'demo' do
   
   # Networking
   pod 'Alamofire', '~> 4.7'
-  pod 'ReachabilitySwift'
   
   # 3rd Platform
   pod 'SwiftInstagram', '~> 1.1.2'
@@ -20,6 +19,9 @@ target 'demo' do
   
   # Debug
   pod 'ASDebugger', :configurations => ['Debug']
+
+  # Foundation
+  pod 'ASFoundation', :path => "Foundation"
   
   target 'demoTests' do
     inherit! :search_paths

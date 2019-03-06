@@ -5,6 +5,8 @@ PODS:
     - SocketRocket (~> 0.5.1)
   - ASDebugger/Core (0.0.8):
     - SocketRocket (~> 0.5.1)
+  - ASFoundation (0.0.1):
+    - ReachabilitySwift (~> 4.3.0)
   - ReachabilitySwift (4.3.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -18,7 +20,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - ASDebugger
-  - ReachabilitySwift
+  - ASFoundation (from `Foundation`)
   - SDWebImage (~> 4.4)
   - SkeletonView (~> 1.4.1)
   - SwiftInstagram (~> 1.1.2)
@@ -33,15 +35,20 @@ SPEC REPOS:
     - SocketRocket
     - SwiftInstagram
 
+EXTERNAL SOURCES:
+  ASFoundation:
+    :path: Foundation
+
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ASDebugger: 78c06b092136b1e3c8db6d2ec8fefe45b31e0013
+  ASFoundation: b55eceb0cdeb079cd91257924f63f63505eb47c3
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SkeletonView: 60d6ce7edb0cb4c7758db33c74add50392b3c475
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SwiftInstagram: 1579fd6ffb294de557bc47deddbe719fde6e2058
 
-PODFILE CHECKSUM: 6d5e14698ecc617b34373d08baf9facdd8e4f1b7
+PODFILE CHECKSUM: a72eddb9293266ad075fa2e772ee2ba42006d036
 
 COCOAPODS: 1.5.3

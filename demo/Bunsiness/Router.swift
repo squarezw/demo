@@ -1,18 +1,28 @@
 //
-//  Router.swift
+//  Route.swift
 //  demo
 //
-//  Created by Jesse on 2019/2/3.
+//  Created by Jesse on 2019/3/3.
 //  Copyright © 2019 Jesse. All rights reserved.
 //
 
 import UIKit
+import ASFoundation
 
 protocol AuthDelegate {
     func isAuthenticated() -> Bool
 }
 
-class Router {
+class Router: RouteProtocol {
+    func open() {
+        
+    }
+    
+    func goback() {
+        
+    }
+    
+    
     static let shared: Router = Router()
     
     var delegate: AuthDelegate?

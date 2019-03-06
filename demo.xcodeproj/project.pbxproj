@@ -9,38 +9,19 @@
 /* Begin PBXBuildFile section */
 		15BCFBF65D6F13FADF1FE5B3 /* Pods_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B861C2A4149D52DB70F1ED70 /* Pods_demoTests.framework */; };
 		76F9C42371C3A711A2638C5B /* Pods_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573511D6483341B0C870CF73 /* Pods_demo.framework */; };
-		953737CA221FBB9500B47931 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953737C9221FBB9500B47931 /* Date+Extension.swift */; };
-		956716D422193EBB00A80180 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716D322193EBB00A80180 /* KeychainSwiftDistrib.swift */; };
-		956716D622194C8600A80180 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716D522194C8600A80180 /* Result.swift */; };
-		956716D822194D8D00A80180 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716D722194D8D00A80180 /* Path.swift */; };
-		956716DA22194E7300A80180 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716D922194E7300A80180 /* Resource.swift */; };
-		956716DC2219502D00A80180 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716DB2219502D00A80180 /* APIError.swift */; };
-		956716DF22195D2200A80180 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716DE22195D2200A80180 /* Cache.swift */; };
-		956716E122195D2D00A80180 /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956716E022195D2D00A80180 /* CacheItem.swift */; };
-		9587691322264A9A00CC81B7 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587691222264A9A00CC81B7 /* LocalizedString.swift */; };
-		9587691522264AB000CC81B7 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587691422264AB000CC81B7 /* AccessibilityIdentifier.swift */; };
+		9531097E222BCA6100455FD5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531097D222BCA6100455FD5 /* Router.swift */; };
 		95BE71D52216E53C00D6D70D /* GlobalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D42216E53C00D6D70D /* GlobalStyle.swift */; };
-		95BE71D72216E58700D6D70D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D62216E58700D6D70D /* Style.swift */; };
-		95BE71D92217C1F900D6D70D /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE71D82217C1F900D6D70D /* Lock.swift */; };
 		95F0AFBE2207320100FF91DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFBD2207320100FF91DD /* AppDelegate.swift */; };
 		95F0AFC02207320100FF91DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFBF2207320100FF91DD /* HomeViewController.swift */; };
 		95F0AFC52207320300FF91DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F0AFC42207320300FF91DD /* Assets.xcassets */; };
 		95F0AFD32207320300FF91DD /* MyRecentMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFD22207320300FF91DD /* MyRecentMediaTests.swift */; };
-		95F0AFE62207406800FF91DD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFE52207406800FF91DD /* Router.swift */; };
-		95F0AFE82207409A00FF91DD /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFE72207409A00FF91DD /* Error.swift */; };
 		95F0AFEC2207437F00FF91DD /* InstagramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFEB2207437E00FF91DD /* InstagramService.swift */; };
 		95F0AFEE220743C400FF91DD /* InstagramClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFED220743C400FF91DD /* InstagramClient.swift */; };
 		95F0AFF0220743EB00FF91DD /* InstagramCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFEF220743EB00FF91DD /* InstagramCredentials.swift */; };
-		95F0AFF42207462500FF91DD /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFF32207462500FF91DD /* DataProvider.swift */; };
-		95F0AFF62207463F00FF91DD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFF52207463F00FF91DD /* APIClient.swift */; };
-		95F0AFFB2207E35E00FF91DD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFFA2207E35E00FF91DD /* String+Extension.swift */; };
-		95F0B000220832D100FF91DD /* BaseViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0AFFF220832D100FF91DD /* BaseViewProvider.swift */; };
 		95F0B0022208355900FF91DD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0012208355900FF91DD /* AuthViewController.swift */; };
 		95F0B0042208392F00FF91DD /* AuthLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0032208392F00FF91DD /* AuthLogicController.swift */; };
-		95F0B0062208421300FF91DD /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0052208421300FF91DD /* Optional+Extension.swift */; };
 		95F0B0092208659A00FF91DD /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0082208659A00FF91DD /* MediaCell.swift */; };
 		95F0B00B220867AA00FF91DD /* HomeLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00A220867AA00FF91DD /* HomeLogicController.swift */; };
-		95F0B00D220895C500FF91DD /* BaseTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */; };
 		95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B00F2209D79700FF91DD /* MediaViewModel.swift */; };
 		95F0B0122209DA6B00FF91DD /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B0112209DA6B00FF91DD /* Media.swift */; };
 		95F0B016220E817200FF91DD /* BaseLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0B015220E817200FF91DD /* BaseLogicController.swift */; };
@@ -62,19 +43,8 @@
 		357146AFC487D7E15609FE93 /* Pods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demo/Pods-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		56FC66BADD03803CDD299B0A /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
 		573511D6483341B0C870CF73 /* Pods_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953737C9221FBB9500B47931 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		956716D322193EBB00A80180 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
-		956716D522194C8600A80180 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		956716D722194D8D00A80180 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		956716D922194E7300A80180 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		956716DB2219502D00A80180 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		956716DE22195D2200A80180 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		956716E022195D2D00A80180 /* CacheItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
-		9587691222264A9A00CC81B7 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		9587691422264AB000CC81B7 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
+		9531097D222BCA6100455FD5 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		95BE71D42216E53C00D6D70D /* GlobalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStyle.swift; sourceTree = "<group>"; };
-		95BE71D62216E58700D6D70D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		95BE71D82217C1F900D6D70D /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		95F0AFBA2207320100FF91DD /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F0AFBD2207320100FF91DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95F0AFBF2207320100FF91DD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -83,23 +53,15 @@
 		95F0AFCE2207320300FF91DD /* demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F0AFD22207320300FF91DD /* MyRecentMediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecentMediaTests.swift; sourceTree = "<group>"; };
 		95F0AFD42207320300FF91DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95F0AFE52207406800FF91DD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		95F0AFE72207409A00FF91DD /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		95F0AFEB2207437E00FF91DD /* InstagramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramService.swift; sourceTree = "<group>"; };
 		95F0AFED220743C400FF91DD /* InstagramClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramClient.swift; sourceTree = "<group>"; };
 		95F0AFEF220743EB00FF91DD /* InstagramCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCredentials.swift; sourceTree = "<group>"; };
 		95F0AFF12207444D00FF91DD /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		95F0AFF32207462500FF91DD /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
-		95F0AFF52207463F00FF91DD /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		95F0AFFA2207E35E00FF91DD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		95F0AFFF220832D100FF91DD /* BaseViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProvider.swift; sourceTree = "<group>"; };
 		95F0B0012208355900FF91DD /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		95F0B0032208392F00FF91DD /* AuthLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogicController.swift; sourceTree = "<group>"; };
-		95F0B0052208421300FF91DD /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		95F0B0072208596D00FF91DD /* TestPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		95F0B0082208659A00FF91DD /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		95F0B00A220867AA00FF91DD /* HomeLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogicController.swift; sourceTree = "<group>"; };
-		95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewProvider.swift; sourceTree = "<group>"; };
 		95F0B00F2209D79700FF91DD /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		95F0B0112209DA6B00FF91DD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		95F0B015220E817200FF91DD /* BaseLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLogicController.swift; sourceTree = "<group>"; };
@@ -128,24 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		956716DD22195D0E00A80180 /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				956716DE22195D2200A80180 /* Cache.swift */,
-				956716E022195D2D00A80180 /* CacheItem.swift */,
-			);
-			path = Cache;
-			sourceTree = "<group>";
-		};
-		9587691122264A7600CC81B7 /* DeStringers */ = {
-			isa = PBXGroup;
-			children = (
-				9587691222264A9A00CC81B7 /* LocalizedString.swift */,
-				9587691422264AB000CC81B7 /* AccessibilityIdentifier.swift */,
-			);
-			path = DeStringers;
-			sourceTree = "<group>";
-		};
 		95F0AFB12207320100FF91DD = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				95F0AFE12207405500FF91DD /* Bunsiness */,
-				95F0AFDD2207405500FF91DD /* Foundation */,
 				95F0AFBD2207320100FF91DD /* AppDelegate.swift */,
 				95F0AFC42207320300FF91DD /* Assets.xcassets */,
 				95F0AFC92207320300FF91DD /* Info.plist */,
@@ -190,41 +133,6 @@
 			path = demoTests;
 			sourceTree = "<group>";
 		};
-		95F0AFDD2207405500FF91DD /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				9587691122264A7600CC81B7 /* DeStringers */,
-				95F0AFE9220742E700FF91DD /* RestClient */,
-				95F0AFDE2207405500FF91DD /* ViewBase */,
-				95F0AFDF2207405500FF91DD /* Helper(Globally) */,
-				95F0AFE52207406800FF91DD /* Router.swift */,
-				95F0AFE72207409A00FF91DD /* Error.swift */,
-				956716D322193EBB00A80180 /* KeychainSwiftDistrib.swift */,
-				95BE71D62216E58700D6D70D /* Style.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		95F0AFDE2207405500FF91DD /* ViewBase */ = {
-			isa = PBXGroup;
-			children = (
-				95F0AFFF220832D100FF91DD /* BaseViewProvider.swift */,
-				95F0B00C220895C500FF91DD /* BaseTableViewProvider.swift */,
-			);
-			path = ViewBase;
-			sourceTree = "<group>";
-		};
-		95F0AFDF2207405500FF91DD /* Helper(Globally) */ = {
-			isa = PBXGroup;
-			children = (
-				95F0AFFA2207E35E00FF91DD /* String+Extension.swift */,
-				95F0B0052208421300FF91DD /* Optional+Extension.swift */,
-				95BE71D82217C1F900D6D70D /* Lock.swift */,
-				953737C9221FBB9500B47931 /* Date+Extension.swift */,
-			);
-			path = "Helper(Globally)";
-			sourceTree = "<group>";
-		};
 		95F0AFE12207405500FF91DD /* Bunsiness */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +140,7 @@
 				95F0AFEA2207434B00FF91DD /* Service(DataProvider) */,
 				95F0AFE32207405500FF91DD /* Views(Controllers) */,
 				95F0AFE42207405500FF91DD /* Model */,
+				9531097D222BCA6100455FD5 /* Router.swift */,
 			);
 			path = Bunsiness;
 			sourceTree = "<group>";
@@ -251,20 +160,6 @@
 				95F0B0112209DA6B00FF91DD /* Media.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		95F0AFE9220742E700FF91DD /* RestClient */ = {
-			isa = PBXGroup;
-			children = (
-				956716DD22195D0E00A80180 /* Cache */,
-				95F0AFF32207462500FF91DD /* DataProvider.swift */,
-				95F0AFF52207463F00FF91DD /* APIClient.swift */,
-				956716DB2219502D00A80180 /* APIError.swift */,
-				956716D522194C8600A80180 /* Result.swift */,
-				956716D722194D8D00A80180 /* Path.swift */,
-				956716D922194E7300A80180 /* Resource.swift */,
-			);
-			path = RestClient;
 			sourceTree = "<group>";
 		};
 		95F0AFEA2207434B00FF91DD /* Service(DataProvider) */ = {
@@ -465,6 +360,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-demo/Pods-demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ASDebugger/ASDebugger.framework",
+				"${BUILT_PRODUCTS_DIR}/ASFoundation/ASFoundation.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -475,6 +371,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASDebugger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASFoundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -531,38 +428,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F0B0122209DA6B00FF91DD /* Media.swift in Sources */,
-				95F0AFE82207409A00FF91DD /* Error.swift in Sources */,
 				95F0AFEC2207437F00FF91DD /* InstagramService.swift in Sources */,
-				956716E122195D2D00A80180 /* CacheItem.swift in Sources */,
-				95F0B00D220895C500FF91DD /* BaseTableViewProvider.swift in Sources */,
 				95F0B0092208659A00FF91DD /* MediaCell.swift in Sources */,
-				95F0B000220832D100FF91DD /* BaseViewProvider.swift in Sources */,
-				956716D622194C8600A80180 /* Result.swift in Sources */,
 				95F0B0042208392F00FF91DD /* AuthLogicController.swift in Sources */,
-				95F0AFF42207462500FF91DD /* DataProvider.swift in Sources */,
-				9587691522264AB000CC81B7 /* AccessibilityIdentifier.swift in Sources */,
 				95F0B0022208355900FF91DD /* AuthViewController.swift in Sources */,
-				956716D822194D8D00A80180 /* Path.swift in Sources */,
+				9531097E222BCA6100455FD5 /* Router.swift in Sources */,
 				95BE71D52216E53C00D6D70D /* GlobalStyle.swift in Sources */,
-				953737CA221FBB9500B47931 /* Date+Extension.swift in Sources */,
-				95F0B0062208421300FF91DD /* Optional+Extension.swift in Sources */,
-				956716DC2219502D00A80180 /* APIError.swift in Sources */,
 				95F0AFC02207320100FF91DD /* HomeViewController.swift in Sources */,
 				95F0B0102209D79700FF91DD /* MediaViewModel.swift in Sources */,
-				95F0AFE62207406800FF91DD /* Router.swift in Sources */,
-				95BE71D92217C1F900D6D70D /* Lock.swift in Sources */,
 				95F0B016220E817200FF91DD /* BaseLogicController.swift in Sources */,
-				956716DA22194E7300A80180 /* Resource.swift in Sources */,
 				95F0AFBE2207320100FF91DD /* AppDelegate.swift in Sources */,
 				95F0AFF0220743EB00FF91DD /* InstagramCredentials.swift in Sources */,
-				95F0AFFB2207E35E00FF91DD /* String+Extension.swift in Sources */,
 				95F0AFEE220743C400FF91DD /* InstagramClient.swift in Sources */,
-				95F0AFF62207463F00FF91DD /* APIClient.swift in Sources */,
 				95F0B00B220867AA00FF91DD /* HomeLogicController.swift in Sources */,
-				95BE71D72216E58700D6D70D /* Style.swift in Sources */,
-				956716D422193EBB00A80180 /* KeychainSwiftDistrib.swift in Sources */,
-				9587691322264A9A00CC81B7 /* LocalizedString.swift in Sources */,
-				956716DF22195D2200A80180 /* Cache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

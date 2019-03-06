@@ -8,23 +8,23 @@
 
 import Foundation
 
-final class DataProvider<T: APIClient> {
-    let client: T
+public final class DataProvider<T: APIClient> {
+    public let client: T
     
-    init(client: T) {
+    public init(client: T) {
         self.client = client
     }
     
-    var isAuthenticated: Bool {
+    public var isAuthenticated: Bool {
         return client.isAuthenticated()
     }
     
     @discardableResult
-    func logout() -> Bool {
+    public func logout() -> Bool {
         return client.logout()
     }
     
-    func login(completion: @escaping () -> ()) throws {
+    public func login(completion: @escaping () -> ()) throws {
         try client.login(completion: completion)
     }
 }

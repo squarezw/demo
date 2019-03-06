@@ -12,14 +12,14 @@ import Reachability
 public typealias JSON = [String: Any]
 public typealias HTTPHeaders = [String: String]
 
-enum RequestMethod: String {
+public enum RequestMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
 }
 
-protocol APIClient {
+public protocol APIClient {
     var baseUrl: String { get }
     
     var commonParams: JSON { get }
@@ -34,7 +34,7 @@ protocol APIClient {
     func logout() -> Bool
 }
 
-extension APIClient {
+public extension APIClient {
     func load<T>(resource: Resource<T>, completion: @escaping (Result<T>) -> ()) -> URLSessionDataTask? {
         // Checking internet connection availability
         if Reachability()?.connection == .none {

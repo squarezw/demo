@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftInstagram
+import ASFoundation
 
 final class InstagramService {
     private let client = InstagramClient.shared

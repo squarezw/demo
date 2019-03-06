@@ -15,7 +15,7 @@ public struct Resource<T> {
     var params: JSON
     let parse: (Data) -> T?
     
-    init(path: String,
+    public init(path: String,
          method: RequestMethod = .get,
          params: JSON = [:],
          headers: HTTPHeaders = [:],
@@ -30,7 +30,7 @@ public struct Resource<T> {
 }
 
 extension Resource where T: Decodable {
-    init(jsonDecoder: JSONDecoder = JSONDecoder(),
+    public init(jsonDecoder: JSONDecoder = JSONDecoder(),
          path: String,
          method: RequestMethod = .get,
          params: JSON = [:],

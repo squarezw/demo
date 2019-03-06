@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ASFoundation
 
 class LogicControllerWithDataProvider {
     var provider: DataProvider<InstagramClient>

@@ -10,15 +10,15 @@ import UIKit
 
 // MARK: UITableViewDataSource
 
-class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDataSource {
-    typealias CellConfigurator = (Model, Cell) -> Void
+public class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDataSource {
+    public typealias CellConfigurator = (Model, Cell) -> Void
     
     var models: [Model]
     
     private let reuseIdentifier: String
     private let cellConfigurator: CellConfigurator
     
-    init(models: [Model],
+    public init(models: [Model],
          reuseIdentifier: String,
          cellConfigurator: @escaping CellConfigurator) {
         self.models = models
@@ -26,12 +26,12 @@ class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDa
         self.cellConfigurator = cellConfigurator
     }
     
-    func tableView(_ tableView: UITableView,
+    public func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
     
-    func tableView(_ tableView: UITableView,
+    public func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
         let cell = tableView.dequeueReusableCell(
@@ -49,19 +49,19 @@ class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDa
 
 // MARK: UITableViewDelegate
 
-class TableViewDelegate<Model>: NSObject, UITableViewDelegate {
-    typealias HeightConfigurator = (Model) -> CGFloat
+public class TableViewDelegate<Model>: NSObject, UITableViewDelegate {
+    public typealias HeightConfigurator = (Model) -> CGFloat
     
     var models: [Model]
     
     private let heightConfigurator: HeightConfigurator
     
-    init(models: [Model], heightConfigurator: @escaping HeightConfigurator) {
+    public init(models: [Model], heightConfigurator: @escaping HeightConfigurator) {
         self.models = models
         self.heightConfigurator = heightConfigurator
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = models[indexPath.row]
         return heightConfigurator(model)
     }

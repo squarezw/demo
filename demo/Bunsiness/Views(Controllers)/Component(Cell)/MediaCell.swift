@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import SkeletonView
+import ASFoundation
 
 class MediaCell: UITableViewCell, Componentable {
     var components: [UIView] {

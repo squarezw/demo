@@ -8,11 +8,12 @@
 
 import Foundation
 import SwiftInstagram
+import ASFoundation
 
 typealias InsAPI = APIClient & InstagramAPI
 
 class InstagramClient: InsAPI, AuthDelegate {
-    let keychain = KeychainSwift(keyPrefix: "PrivateClient_")
+    let keychain = ASFoundation.KeychainSwift(keyPrefix: "PrivateClient_")
 
     var commonParams: JSON {
         if let token = keychain.get("application_token") {
