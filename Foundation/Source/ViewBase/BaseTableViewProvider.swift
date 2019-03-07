@@ -61,7 +61,7 @@ public class TableViewDelegate<Model>: NSObject, UITableViewDelegate {
         self.heightConfigurator = heightConfigurator
     }
     
-    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = models[indexPath.row]
         return heightConfigurator(model)
     }
