@@ -13,20 +13,6 @@ public protocol Extensible {
 //    var route: ExtensibleType { get }
 }
 
-// Route extension
-
-public protocol RouteProtocol {
-//    var route: Tree
-    func open() // by default: push in navigation controller
-    func goback()
-}
-
-public extension Extensible {
-    var route: Auto<Self> {
-        get { return Auto(self) }
-    }
-}
-
 public struct Auto<Base> {
     let base: Base
     init(_ base: Base) {
@@ -34,22 +20,63 @@ public struct Auto<Base> {
     }
 }
 
+// MARK: Extensible func for UIViewController
+public extension Extensible where Self: UIViewController {
+    var route: Auto<Self> {
+        get { return Auto(self) }
+    }
+}
+
 extension UIViewController: Extensible {}
 
-extension Auto: RouteProtocol where Base:UIViewController {
-    public func open() {
-        if let navi = self.base.navigationController {
-            navi.pushViewController(self.base, animated: true)
-        } else {
-            // todo: present by Root View Controller
-        }
+// MARK: Route Protocol, it's like a tree
+public protocol RouteProtocol {
+    associatedtype T: Routable
+//    var parent: RouteProtocol? { get }
+//    var children: [RouteProtocol] { get }
+    
+    func insert(node: T)
+    func delete(node: T)
+//    func go(to: RouteProtocol)
+}
+
+// Node value protocol, be compatible with View / ViewController
+public protocol Routable {
+    
+    func present()
+    func dismiss()
+}
+
+extension UIViewController: Routable {
+    public func present() {
+        
     }
     
-    public func goback() {
-        if let navi = self.base.navigationController {
-            navi.popViewController(animated: true)
-        } else {
-            // todo: dismiss
+    public func dismiss() {
+        self.navigationController?.popViewController(animated: true)
+        // or dismiss by presentation type
+    }
+}
+
+extension UINavigationController: RouteProtocol {
+    public func insert(node: UIViewController) {
+        self.pushViewController(node, animated: true)
+    }
+    
+    public func delete(node: UIViewController) {
+        if node.navigationController == self {
+            self.popViewController(animated: true)
         }
+    }
+}
+
+extension UITabBarController: RouteProtocol {
+    public func insert(node: UIViewController) {
+        self.viewControllers?.append(node)
+    }
+    
+    public func delete(node: UIViewController) {
+        guard let index = self.viewControllers?.firstIndex(of: node) else { return }
+        self.viewControllers?.remove(at: index)
     }
 }

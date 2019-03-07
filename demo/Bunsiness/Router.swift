@@ -13,17 +13,12 @@ protocol AuthDelegate {
     func isAuthenticated() -> Bool
 }
 
-class Router: RouteProtocol {
-    func open() {
-        
-    }
-    
-    func goback() {
-        
-    }
-    
-    
+class Router {
     static let shared: Router = Router()
+    
+    lazy var root: UINavigationController = {
+        return UINavigationController(rootViewController: rootViewController())
+    }()
     
     var delegate: AuthDelegate?
     
@@ -35,28 +30,25 @@ class Router: RouteProtocol {
         }
     }
     
-    func entryVC() -> UINavigationController {
-        return UINavigationController(rootViewController: rootViewController())
-    }
-    
     /// once user login or logout, the root should be rebuild.
     func refresh() {
-        UIApplication.shared.keyWindow?.rootViewController = entryVC()
+        root = UINavigationController(rootViewController: rootViewController())
+        UIApplication.shared.keyWindow?.rootViewController = root
     }
     
     func gotoAuthPage() {
-        if let vc = entryVC().viewControllers.first(where: { $0 is AuthViewController } ) {
-            entryVC().popToViewController(vc, animated: true)
+        if let vc = root.viewControllers.first(where: { $0 is AuthViewController } ) {
+            root.popToViewController(vc, animated: true)
         } else {
-            entryVC().pushViewController(AuthViewController(), animated: true)
+            root.pushViewController(AuthViewController(), animated: true)
         }
     }
     
     func gotoHomePage() {
-        if let vc = entryVC().viewControllers.first(where: { $0 is HomeViewController } ) {
-            entryVC().popToViewController(vc, animated: true)
+        if let vc = root.viewControllers.first(where: { $0 is HomeViewController } ) {
+            root.popToViewController(vc, animated: true)
         } else {
-            entryVC().pushViewController(HomeViewController(), animated: true)
+            root.pushViewController(HomeViewController(), animated: true)
         }
     }
 }

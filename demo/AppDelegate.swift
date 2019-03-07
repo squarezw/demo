@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         Router.shared.delegate = InstagramClient.shared
-        window?.rootViewController = Router.shared.entryVC()
+        window?.rootViewController = Router.shared.root
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         

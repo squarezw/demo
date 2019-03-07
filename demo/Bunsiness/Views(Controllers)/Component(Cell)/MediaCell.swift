@@ -53,8 +53,6 @@ class MediaCell: UITableViewCell, Componentable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupComponents()
-        
-        showLoadingAnimation()
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -69,15 +67,6 @@ class MediaCell: UITableViewCell, Componentable {
         rootStackView.addArrangedSubview(picView)
         
         addSubview(rootStackView)
-    }
-    
-    private func showLoadingAnimation() {
-        isSkeletonable = true
-        showAnimatedSkeleton()
-    }
-    
-    private func hideLoadingAnimation() {
-        hideSkeleton()
     }
     
     func layoutComponents() {
@@ -98,8 +87,6 @@ class MediaCell: UITableViewCell, Componentable {
     
     private func updateUI() {
         guard let viewModel = viewModel else { return }
-        
-        hideLoadingAnimation()
         
         nameLabel.text = viewModel.username
         avatarImageView.sd_setImage(with: viewModel.avatar)
