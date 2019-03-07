@@ -37,7 +37,12 @@ public protocol RouteProtocol {
     
     func insert(node: T)
     func delete(node: T)
-//    func go(to: RouteProtocol)
+    func findBy(node: T) -> T?
+    func findBy<V>(node: V.Type) -> T?
+    @discardableResult
+    func go(to: T) -> Bool
+    @discardableResult
+    func go<V>(to: V.Type) -> Bool
 }
 
 // Node value protocol, be compatible with View / ViewController
@@ -59,14 +64,50 @@ extension UIViewController: Routable {
 }
 
 extension UINavigationController: RouteProtocol {
+    public func go<V>(to: V.Type) -> Bool {
+        
+        guard let vc = findBy(node: to) else {
+            return false
+        }
+        popToViewController(vc, animated: true)
+        return true
+    }
+    
+    public func go(to: UIViewController) -> Bool {
+        
+        guard let vc = findBy(node: to) else {
+            return false
+        }
+        popToViewController(vc, animated: true)
+        return true
+    }
+    
     public func insert(node: UIViewController) {
+        
         self.pushViewController(node, animated: true)
     }
     
     public func delete(node: UIViewController) {
+        
         if node.navigationController == self {
             self.popViewController(animated: true)
         }
+    }
+    
+    public func findBy(node: UIViewController) -> UIViewController? {
+        
+        guard let vc = self.viewControllers.first(where: { $0 == node }) else {
+            return nil
+        }
+        return vc
+    }
+    
+    public func findBy<V>(node: V.Type) -> UIViewController? {
+        
+        guard let vc = self.viewControllers.first(where: { $0 is V }) else {
+            return nil
+        }
+        return vc
     }
 }
 
@@ -76,7 +117,44 @@ extension UITabBarController: RouteProtocol {
     }
     
     public func delete(node: UIViewController) {
+        
         guard let index = self.viewControllers?.firstIndex(of: node) else { return }
         self.viewControllers?.remove(at: index)
+    }
+
+    public func findBy(node: UIViewController) -> UIViewController? {
+        
+        guard let vc = self.viewControllers?.first(where: { $0 == node }) else {
+            return nil
+        }
+        return vc
+    }
+    
+    public func findBy<V>(node: V.Type) -> UIViewController? {
+        
+        guard let vc = self.viewControllers?.first(where: { $0 is V }) else {
+            return nil
+        }
+        return vc
+    }
+    
+    public func go<V>(to: V.Type) -> Bool {
+        
+        guard let vc = findBy(node: to) else {
+            return false
+        }
+        return go(to: vc)
+    }
+    
+    public func go(to: UIViewController) -> Bool {
+        
+        guard let vc = findBy(node: to) else {
+            return false
+        }
+        guard let index = self.viewControllers?.firstIndex(of: vc) else {
+            return false
+        }
+        self.selectedIndex = index
+        return true
     }
 }

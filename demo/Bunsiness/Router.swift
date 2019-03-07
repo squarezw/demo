@@ -16,6 +16,11 @@ protocol AuthDelegate {
 class Router {
     static let shared: Router = Router()
     
+    enum Page {
+        case HomeView
+        case AuthView
+    }
+    
     lazy var root: UINavigationController = {
         return UINavigationController(rootViewController: rootViewController())
     }()
@@ -36,19 +41,20 @@ class Router {
         UIApplication.shared.keyWindow?.rootViewController = root
     }
     
-    func gotoAuthPage() {
-        if let vc = root.viewControllers.first(where: { $0 is AuthViewController } ) {
-            root.popToViewController(vc, animated: true)
-        } else {
-            root.pushViewController(AuthViewController(), animated: true)
-        }
-    }
-    
-    func gotoHomePage() {
-        if let vc = root.viewControllers.first(where: { $0 is HomeViewController } ) {
-            root.popToViewController(vc, animated: true)
-        } else {
-            root.pushViewController(HomeViewController(), animated: true)
+    func goto(_ page: Page) {
+        switch page {
+        case .HomeView:
+            guard root.go(to: HomeViewController.self) else {
+                root.insert(node: HomeViewController())
+                return
+            }
+            break
+        case .AuthView:
+            guard root.go(to: AuthViewController.self) else {
+                root.insert(node: AuthViewController())
+                return
+            }
+            break
         }
     }
 }
