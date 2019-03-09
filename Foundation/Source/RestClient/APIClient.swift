@@ -35,6 +35,7 @@ public protocol APIClient {
 }
 
 public extension APIClient {
+    @discardableResult
     func load<T>(resource: Resource<T>, completion: @escaping (Result<T>) -> ()) -> URLSessionDataTask? {
         // Checking internet connection availability
         if Reachability()?.connection == .none {
