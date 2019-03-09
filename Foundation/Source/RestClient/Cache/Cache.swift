@@ -8,13 +8,13 @@
 
 import UIKit
 
-class Cache {
+public class Cache {
     
-    typealias T = Any
+    public typealias T = Any
     
-    static let shared: Cache = Cache()
+    public static let shared: Cache = Cache()
     
-    static var defaultExpireTimeInterval = 60 * 60.0
+    public static var defaultExpireTimeInterval = 60 * 60.0
     
     private var sessionCache: NSCache<AnyObject, CacheItem<T>> = NSCache<AnyObject, CacheItem<T>>()
     
@@ -30,7 +30,7 @@ class Cache {
         sessionCache.removeAllObjects()
     }
     
-    func cachedObject(forKey cacheKey: String) -> Any? {
+    public func cachedObject(forKey cacheKey: String) -> Any? {
         guard let cacheItem = (sessionCache.object(forKey: cacheKey as AnyObject)) else {
             return nil
         }
@@ -43,14 +43,14 @@ class Cache {
         return cacheItem.data
     }
     
-    func cacheObject(_ data: T, forKey cacheKey: String, aliveDuration: TimeInterval = defaultExpireTimeInterval) {
+    public func cacheObject(_ data: T, forKey cacheKey: String, aliveDuration: TimeInterval = defaultExpireTimeInterval) {
         
         let cacheItem = CacheItem(data: data, aliveTill: Date().addingTimeInterval(aliveDuration))
         
         sessionCache.setObject(cacheItem, forKey: cacheKey as AnyObject)
     }
     
-    func deleteCache(forKey cacheKey: String) {
+    public func deleteCache(forKey cacheKey: String) {
         guard let cacheItem = (sessionCache.object(forKey: cacheKey as AnyObject)) else {
             return
         }

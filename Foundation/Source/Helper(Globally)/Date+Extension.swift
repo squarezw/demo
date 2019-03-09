@@ -9,16 +9,16 @@
 import Foundation
 
 extension Date {
-    var tomorrow: Date {
+    public var tomorrow: Date {
         return Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     }
     
-    var afterTomorrow: Date {
+    public var afterTomorrow: Date {
         return Calendar.current.date(byAdding: .day, value: 2, to: Date())!
     }
     
     // format like `2019-01-01`
-    var simpleDesc: String {
+    public var simpleDesc: String {
         let timestampFormat: String = "yyyy-MM-dd"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = timestampFormat
