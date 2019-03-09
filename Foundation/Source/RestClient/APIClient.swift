@@ -19,6 +19,11 @@ public enum RequestMethod: String {
     case delete = "DELETE"
 }
 
+public protocol TokenStore {
+    var accessToken: String { get set }
+    var refreshToken: String { get set }
+}
+
 public protocol APIClient {
     var baseUrl: String { get }
     
@@ -144,4 +149,21 @@ extension CharacterSet {
         allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         return allowed
     }()
+}
+
+extension KeychainSwift: TokenStore {
+    private enum Keys {
+        static let accessToken = "accessToken"
+        static let refreshToken = "refreshToken"
+    }
+
+    public var accessToken: String {
+        get { return get(Keys.accessToken) ?? "" }
+        set { set(newValue, forKey: Keys.accessToken) }
+    }
+
+    public var refreshToken: String {
+        get { return get(Keys.refreshToken) ?? "" }
+        set { set(newValue, forKey: Keys.refreshToken)}
+    }
 }
