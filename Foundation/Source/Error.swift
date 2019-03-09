@@ -10,6 +10,9 @@ import Foundation
 
 public enum ZError: Error {
     case networkingServiceError(reason: APIError)
+    case dataError
+    case dataEmpty
+    case customError(String)
     case unknown
 }
 
@@ -20,6 +23,12 @@ extension ZError: LocalizedError {
             return reason.localizedDescription
         case .unknown:
             return LocalizedString.unknownError
+        case .dataError:
+            return LocalizedString.dataError
+        case .dataEmpty:
+            return LocalizedString.dataEmpty
+        case .customError(let err):
+            return err
         }
     }
 }

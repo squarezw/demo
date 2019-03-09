@@ -34,16 +34,18 @@ public class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITabl
     public func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: reuseIdentifier,
-            for: indexPath
-        )
+        
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        
+        if cell == nil {
+            cell = Bundle.main.loadNibNamed(reuseIdentifier, owner: self, options: nil)?.first as? UITableViewCell
+        }
         
         if let `cell` = cell as? Cell {
             cellConfigurator(model, cell)
         }
         
-        return cell
+        return cell!
     }
 }
 

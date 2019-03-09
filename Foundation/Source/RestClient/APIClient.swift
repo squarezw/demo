@@ -54,7 +54,11 @@ public extension APIClient {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // Parsing incoming data
             guard let response = response as? HTTPURLResponse else {
-                completion(.failure(APIError.unknown))
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.failure(APIError.unknown))
+                }
                 return
             }
             
@@ -110,9 +114,33 @@ extension URLRequest {
         }
         switch resource.method {
         case .post, .put:
-            httpBody = try! JSONSerialization.data(withJSONObject: resource.params, options: [])
+            httpBody = resource.params.percentEscaped().data(using: .utf8)
+            // TODO: a Swift issue?
+//            httpBody = try! JSONSerialization.data(withJSONObject: resource.params, options: [])
         default:
             break
         }
     }
+}
+
+extension Dictionary {
+    func percentEscaped() -> String {
+        return map { (key, value) in
+            let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            return escapedKey + "=" + escapedValue
+            }
+            .joined(separator: "&")
+    }
+}
+
+extension CharacterSet {
+    static let urlQueryValueAllowed: CharacterSet = {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+        
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
+        return allowed
+    }()
 }

@@ -20,6 +20,6 @@ enum AccessibilityIdentifier: String {
 }
 
 /**
- Change it as you want in order to place all into one file which could
- be manageable and testable.
+ In order to manage all identifier in one place, the following could be changed
+ as you want.
  */

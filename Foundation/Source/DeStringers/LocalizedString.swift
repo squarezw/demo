@@ -20,7 +20,8 @@ enum LocalizedString {
     //MARK: - Error of strings
     static let error = NSLocalizedString("Error", comment: "Error occurred")
     static let unknownError = NSLocalizedString("Un known Error!", comment: "Un known error occurred")
-    
+    static let dataError = NSLocalizedString("Data is invalid!", comment: "Data is invalid")
+    static let dataEmpty = NSLocalizedString("No result!", comment: "No result")
     //MARK: - Debug message of strings
 }
 

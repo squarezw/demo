@@ -38,14 +38,19 @@ extension Resource where T: Decodable {
         
         var newHeaders = headers
         newHeaders["Accept"] = "application/json"
-        newHeaders["Content-Type"] = "application/json"
+//        newHeaders["Content-Type"] = "application/json"
         
         self.path = Path(path)
         self.method = method
         self.params = params
         self.headers = newHeaders
         self.parse = {
-            try? jsonDecoder.decode(T.self, from: $0)
+            do {
+                return try jsonDecoder.decode(T.self, from: $0)
+            } catch let error {
+                print(ZError.customError(error.localizedDescription))
+                return nil
+            }
         }
     }
 }

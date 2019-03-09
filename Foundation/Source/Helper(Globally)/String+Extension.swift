@@ -20,4 +20,11 @@ extension String {
         }
         return (0..<length).map { String(format: "%02x", hash[$0]) }.joined()
     }
+    
+    var date: Date? {
+        let timestampFormat: String = "yyyy-MM-dd'T'HH:mm:ss"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = timestampFormat
+        return dateFormatter.date(from: self)
+    }
 }
