@@ -17,13 +17,16 @@ public class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITabl
     
     private let reuseIdentifier: String
     private let cellConfigurator: CellConfigurator
+    private let loadFromNib: Bool
     
     public init(models: [Model],
          reuseIdentifier: String,
+         loadFromNib: Bool = false,
          cellConfigurator: @escaping CellConfigurator) {
         self.models = models
         self.reuseIdentifier = reuseIdentifier
         self.cellConfigurator = cellConfigurator
+        self.loadFromNib = loadFromNib
     }
     
     public func tableView(_ tableView: UITableView,
@@ -34,11 +37,12 @@ public class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, UITabl
     public func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
+        var cell: UITableViewCell?
         
-        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        
-        if cell == nil {
-            cell = Bundle.main.loadNibNamed(reuseIdentifier, owner: self, options: nil)?.first as? UITableViewCell
+        if loadFromNib {
+            cell = Bundle.main.loadNibNamed(reuseIdentifier, owner: self, options: nil)?.last as? UITableViewCell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         }
         
         if let `cell` = cell as? Cell {
