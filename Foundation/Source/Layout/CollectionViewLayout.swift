@@ -103,3 +103,16 @@ class StickyFlowLayout: UICollectionViewFlowLayout {
         }
     }
 }
+
+public extension UICollectionViewCell {
+    /// usually called by `preferredLayoutAttributesFitting` func to return fit size
+    func layoutSizeFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        return layoutAttributes
+    }
+}
