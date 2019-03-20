@@ -54,9 +54,6 @@ Pod::Spec.new do |s|
   #
 
   s.author             = { "Jesse.zhao" => "square.zhao.wei@gmail.com" }
-  # Or just: s.author    = "Jesse.zhao"
-  # s.authors            = { "Jesse.zhao" => "square.zhao.wei@gmail.com" }
-  # s.social_media_url   = "http://twitter.com/Jesse.zhao"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,8 +61,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"

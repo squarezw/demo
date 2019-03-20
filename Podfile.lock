@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ASDebugger: 78c06b092136b1e3c8db6d2ec8fefe45b31e0013
-  ASFoundation: c8ea93721ca66067298fed8a6334a7cfb3e5d07b
+  ASFoundation: 52b129bbacd1c55efc16e975513f1b2d0bac6229
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SkeletonView: 60d6ce7edb0cb4c7758db33c74add50392b3c475
