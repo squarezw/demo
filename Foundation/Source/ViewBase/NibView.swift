@@ -26,12 +26,17 @@ import UIKit
 ///
 /// https://medium.com/swift2go/swift-custom-uiview-with-xib-file-211bb8bbd6eb
 class NibView: UIView {
+
+    var shouldSetupConstraints = true
+
     var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         // Setup view from .xib file
         xibSetup()
+        // Update constraints
+        updateConstraintsIfNeeded()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +44,15 @@ class NibView: UIView {
 
         // Setup view from .xib file
         xibSetup()
+    }
+
+    /// Best practice for update constrainsts
+    override func updateConstraints() {
+        if shouldSetupConstraints {
+            // add constrainsts here
+            shouldSetupConstraints = false
+        }
+        super.updateConstraints()
     }
 }
 
