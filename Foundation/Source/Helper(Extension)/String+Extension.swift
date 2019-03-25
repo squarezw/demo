@@ -28,3 +28,31 @@ extension String {
         return dateFormatter.date(from: self)
     }
 }
+
+// Helper of substring
+extension String {
+    // [1] or [n]
+    subscript (i: Int) -> String {
+        return self[i ..< i + 1]
+    }
+
+    func substring(from: Int) -> String {
+        return self[min(from, count) ..< count]
+    }
+
+    func substring(to: Int) -> String {
+        return self[0 ..< max(0, to)]
+    }
+
+    // [1..<3] or [Range(1...3)]
+    subscript (r: Range<Int>) -> String {
+
+        let lowerBound = max(0, min(count, r.lowerBound))
+        let upperBound = min(count, max(0, r.upperBound))
+
+        let start = index(startIndex, offsetBy: lowerBound)
+        let end = index(start, offsetBy: upperBound - lowerBound)
+        return String(self[start..<end])
+    }
+
+}

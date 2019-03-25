@@ -16,6 +16,22 @@ extension Date {
     public var afterTomorrow: Date {
         return Calendar.current.date(byAdding: .day, value: 2, to: Date())!
     }
+
+    var isPast: Bool {
+        return isPast(referenceDate: Date())
+    }
+
+    var isFuture: Bool {
+        return !isPast
+    }
+
+    func isPast(referenceDate: Date) -> Bool {
+        return timeIntervalSince(referenceDate) <= 0
+    }
+
+    func isFuture(referenceDate: Date) -> Bool {
+        return !isPast(referenceDate: referenceDate)
+    }
     
     // format like `2019-01-01`
     public var simpleDesc: String {
