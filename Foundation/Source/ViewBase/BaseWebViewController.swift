@@ -95,3 +95,23 @@ open class ASWebViewController: UIViewController {
     }
 
 }
+
+extension ASWebViewController: WKNavigationDelegate{
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = webView.url else {
+            decisionHandler(.cancel)
+            return
+        }
+
+        if url.scheme != "http" && url.scheme != "https" {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            } else {
+//                print("Sorry, you haven't install the \(url.scheme ?? "")")
+            }
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
+    }
+}
